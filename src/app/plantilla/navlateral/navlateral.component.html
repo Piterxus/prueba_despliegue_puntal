@@ -1,0 +1,45 @@
+<div class="azul500 col-md-2 d-flex flex-column">
+  <img alt="Bootstrap Image Preview" src="/assets/img/Group.svg" class="logo" />
+  <app-boton
+  [claseDesbloqueado]="claseBotonDesbloqueado"
+  [claseBloqueado]="claseBotonBloqueado"
+  [imageUrlDesbloqueado]="imageUrlDashboardDesbloqueado"
+  [imageUrlBloqueado]="imageUrlDashboardBloqueado"
+  label="Panel de control"
+  [route]="dashboardRoute"
+  [bloqueado]="bloqueadoPanelControl"
+  (click)="activarPanelControl()"
+></app-boton>
+<app-boton
+  [claseDesbloqueado]="claseBotonDesbloqueado"
+  [claseBloqueado]="claseBotonBloqueado"
+  [imageUrlDesbloqueado]="imageUrlEmbarcacionDesbloqueado"
+  [imageUrlBloqueado]="imageUrlEmbarcacionBloqueado"
+  label="Gestion de embarcaciones"
+  [route]="embarcacionRoute"
+  [bloqueado]="bloqueadoGestionEmbarcaciones"
+  (click)="activarGestionEmbarcaciones()"
+></app-boton>
+<app-boton
+  [claseDesbloqueado]="claseBotonDesbloqueado"
+  [claseBloqueado]="claseBotonBloqueado"
+  [imageUrlDesbloqueado]="imageUrlTransitosDesbloqueado"
+  [imageUrlBloqueado]="imageUrlTransitosBloqueado"
+  label="Gestion de transitos"
+  [route]="transitosRoute"
+  [bloqueado]="bloqueadoGestionTransitos"
+  (click)="activarGestionTransitos()"
+></app-boton>
+
+<app-boton
+  [claseDesbloqueado]="claseBotonDesbloqueado"
+  [claseBloqueado]="claseBotonBloqueado"
+  [imageUrlDesbloqueado]="imageUrlPbDesbloqueado"
+  [imageUrlBloqueado]="imageUrlPbBloqueado"
+  label="Gestion de plazas base"
+  [route]="plazasBaseRoute"
+  [bloqueado]="bloqueadoGestionPlazaBase"
+  (click)="activarGestionPlazaBase()"
+></app-boton>
+
+</div>

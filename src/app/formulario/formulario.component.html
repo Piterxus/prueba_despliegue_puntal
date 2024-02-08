@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>ALTA EMBARCACION</title>
+</head>
+<body>
+
+
+  <h2>{{nombre}}</h2>
+  <div  class="container-fluid">
+  <div class="row" >
+    
+    <div class="col-md-6" >
+      <form action="" id="Formulario">
+  
+        <div *ngFor="let inputs of input;let i=index;" class="">
+          <label [for]="inputs.label">{{inputs.label}}:</label>
+          
+          <input
+          class="form-control"
+            [id]="inputs.label"
+            [name]="inputs.label"
+            [type]="inputs.type"
+            [placeholder]="inputs.label"
+            
+          >
+     
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-6">
+      <form action="" id="Formulario" class="der">
+        <div class="form-group">
+          <label for="texto">{{texto}}:</label>
+          <textarea  placeholder="{{texto}}" name="texto" id="texto" cols="30" rows="10"></textarea>
+          <app-tabla-tripulante></app-tabla-tripulante>
+        </div>
+        <div class="  d-flex justify-content-end mt-6">
+        <button  type="submit" class="btn btn-warning cancel mr-4">CANCELAR</button>
+        <button type="submit" class="btn btn-primary accept  ml-4">{{boton}}</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+</body>
+</html>
+

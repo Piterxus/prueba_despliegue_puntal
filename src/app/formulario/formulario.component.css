@@ -1,0 +1,99 @@
+label {
+  font-weight: bold;
+  margin: 5px;
+
+}
+
+h2 {
+  background-color: #1d2834;
+  color: white;
+  margin-bottom: 30px;
+  height: 61px;
+  border: 1px solid #ccc;
+  border-radius: 20px 20px 0px 0px;
+  padding: 12px;
+
+  
+}
+
+
+
+.cancel {
+  background-color: #ffc745;
+  width: 112px;
+  color: #7A2E0D;
+  font-weight: bold;
+  display: flex;
+  width: 111.537px;
+  height: 50.507px;
+  padding: 10.522px 15.783px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 5.261px;
+  border: 1.052px solid var(--Golden-Tainoi-300, #FFC745);
+  background: var(--Golden-Tainoi-300, #FFC745);
+  margin-right: 40px;
+}
+
+.accept {
+  display: flex;
+  width: 112px;
+  height: 51px;
+  padding: 10.522px 15.783px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 5.261px;
+  border: 1.052px solid var(--Titan-White-900, #3F2D85);
+  background: var(--Titan-White-900, #3F2D85);
+}
+
+#Formulario {
+  padding-left: 20px;
+
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+
+  margin: auto;
+}
+
+textarea {
+  resize: vertical;
+  border-radius:10px;
+  padding: 8px;
+}
+body
+{
+  
+border-radius: 20px;
+background: #FFF;
+box-shadow: px 5px 5px 0px rgba(0, 0, 0, 0.25);
+  width: 95%;
+  height: 89vh;
+  margin: 20px;
+ 
+  
+}
+input[type="checkbox"] {
+  width: 28px;
+height: 28px;
+flex-shrink: 0;
+}
+input[type="checkbox"]:checked {
+background-color: #3179c7;}
+/* --botones */
+.d-flex
+{
+margin-right: 280px;
+margin-top: 380px;
+  
+
+
+}

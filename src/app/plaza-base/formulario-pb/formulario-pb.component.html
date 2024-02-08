@@ -1,0 +1,138 @@
+<div class="formularioPlazaBase">
+    <div class="formHeader">
+      <h5>{{ mostrarVacio ? "ALTA PLAZA BASE" : "VISTA PLAZA BASE" }}</h5>
+    </div>
+    <form action="">
+      <div *ngIf="mostrarVacio">
+        <div class="d-flex">
+          <div class="formLeft">
+            <div class="mb-3 d-flex">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input name="nombre" type="text" class="form-control mt-4" placeholder="Nombre" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="matricula" class="form-label">Matrícula:</label>
+              <input name="matricula" type="text" class="form-control mt-4" placeholder="Matrícula" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="modelo" class="form-label">Modelo:</label>
+              <input name="modelo" type="text" class="form-control mt-4" placeholder="Modelo" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="origen" class="form-label">Origen:</label>
+              <input name="origen" type="text" class="form-control mt-4" placeholder="Origen" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="titular" class="form-label">Titular:</label>
+              <input name="titular" type="text" class="form-control mt-4" placeholder="Titular" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="eslora" class="form-label">Eslora:</label>
+              <input name="eslora" type="text" class="form-control mt-4" placeholder="Eslora" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="manga" class="form-label">Manga:</label>
+              <input name="manga" type="text" class="form-control mt-4" placeholder="Manga" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="registro" class="form-label">Nº Registro:</label>
+              <input name="registro" type="text" class="form-control mt-4" placeholder="Nº Registro" />
+            </div>
+          </div>
+          <div class="formRight">
+            <div class="mb-3 d-flex">
+              <label for="tipo" class="form-label">Tipo:</label>
+              <input name="tipo" type="text" class="form-control mt-4" placeholder="Tipo" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="datosTecnicos" class="form-label">Datos técnicos:</label>
+              <textarea name="datos" class="form-control mt-4" placeholder="Datos técnicos"></textarea>
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="imagen" class="form-label">Imagen:</label>
+              <input name="imgEmb" type="file" class="form-control mt-4" (change)="onFileSelected($event)"/>
+            </div>
+            <div class="d-flex justify-content-center">
+              <img class="imgEmb" [src]="imagenSeleccionada  || '/assets/img/embarcaciones/image-outline.svg'"  alt="" />
+            </div>
+            <div class="d-flex justify-content-end mt-5">
+              <button class="btn btnCancelar" routerLink="../tabla">
+                CANCELAR
+              </button>
+              <button class="btn btnAdd">AÑADIR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div *ngIf="!mostrarVacio">
+        <div class="d-flex">
+          <div class="formLeft">
+            <div class="mb-3 d-flex">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input name="nombre" type="text" class="form-control mt-4" placeholder="Nombre"
+                [(ngModel)]="plazaBSeleccionada.fecha_entrada" [attr.readonly]="modoVista ? 'readonly' : null" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="matricula" class="form-label">Matrícula:</label>
+              <input name="matricula" type="text" class="form-control mt-4" placeholder="Matrícula"
+                [(ngModel)]="plazaBSeleccionada.embarcacion" [attr.readonly]="modoVista ? 'readonly' : null" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="modelo" class="form-label">Modelo:</label>
+              <input name="modelo" type="text" class="form-control mt-4" placeholder="Modelo"
+                [(ngModel)]="plazaBSeleccionada.instalacion" [attr.readonly]="modoVista ? 'readonly' : null" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="origen" class="form-label">Origen:</label>
+              <input name="origen" type="text" class="form-control mt-4" placeholder="Origen"
+                [(ngModel)]="plazaBSeleccionada.pantalan" [attr.readonly]="modoVista ? 'readonly' : null" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="titular" class="form-label">Titular:</label>
+              <input name="titular" type="text" class="form-control mt-4" placeholder="Titular"
+                [(ngModel)]="plazaBSeleccionada.amarre" [attr.readonly]="modoVista ? 'readonly' : null" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="eslora" class="form-label">Eslora:</label>
+              <input name="eslora" type="text" class="form-control mt-4" placeholder="Eslora"
+                [(ngModel)]="plazaBSeleccionada.autorizaciones" [attr.readonly]="modoVista ? 'readonly' : null" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="manga" class="form-label">Manga:</label>
+              <input name="origen" type="text" class="form-control mt-4" placeholder="Manga"
+                [(ngModel)]="plazaBSeleccionada.titular" [attr.readonly]="modoVista ? 'readonly' : null" />
+            </div>
+          
+          </div>
+          <div class="formRight">
+            <div class="mb-3 d-flex">
+              <label for="tipo" class="form-label">Tipo:</label>
+              <input name="tipo" type="text" class="form-control mt-4" placeholder="Tipo"
+                [(ngModel)]="plazaBSeleccionada.inicio" [attr.readonly]="modoVista ? 'readonly' : null" />
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="datosTecnicos" class="form-label">Datos técnicos:</label>
+              <textarea name="datos" class="form-control mt-4" placeholder="Datos técnicos"
+                [(ngModel)]="plazaBSeleccionada.datos_estancia"
+                [attr.readonly]="modoVista ? 'readonly' : null"></textarea>
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="imagen" class="form-label">Imagen:</label>
+              <input name="imgEmb" type="file" class="form-control mt-4" (change)="onFileSelected($event)"/>
+            </div>
+            <div class="d-flex justify-content-center">
+              <img class="imgEmb" [src]="imagenSeleccionada || '/assets/img/embarcaciones/image-outline.svg'" alt="" />
+            </div>
+            <div class="d-flex justify-content-end mt-5">
+              <button *ngIf="modoVista" class="btn btnBack" routerLink="../tabla">VOLVER</button>
+              <button *ngIf="!modoVista" class="btnDelete btn" routerLink="../tabla">ELIMINAR</button>
+              <button [ngClass]="{'btn': true, 'btnVista': modoVista, 'btnAdd': !modoVista}"
+                (click)="activarModoEdicion()">
+                MODIFICAR
+              </button> 
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </form>
+  </div>

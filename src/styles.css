@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Questrial&display=swap');
+
+:root {
+    --wedgewood50: #f5f7fa;
+    --wedgewood100: #eaeff4;
+    --wedgewood200: #d0dce7;
+    --wedgewood300: #a6bed3;
+    --wedgewood500: #4f7796;
+    --wedgewood600: #426787;
+    --wedgewood700: #36536e;
+    --wedgewood950: #1d2834;
+    --regentStBlue300: #add8e6;
+    --regentStBlue950: #162f3b;
+    --gold500: #ffd700;
+    --gold950: #442604;
+    --goldenTainoi300: #ffc745;
+    --goldenTainoi900: #7a2e0d;
+    --titanWhite50: #f5f6fd;
+    --titanWhite900: #3f2d85;
+}
+html, body { height: 100%; }
+

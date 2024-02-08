@@ -1,0 +1,106 @@
+.formularioTransitos {
+    padding: 50px;
+    
+}
+
+form {
+    
+    background-color: #FFFFFF;
+    padding: 15px;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.autorizaciones
+{
+    margin-top: 20px;
+    margin-right: 200px;
+}
+.formLeft {
+    margin-right: 100px;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 30px;
+
+
+}
+input[name='proposito'] {
+    background-image: url(/assets/img/transitos/proposito.svg);
+
+}
+
+
+input[name='fecha_entrada'],
+input[name="fecha_salida"] {
+    background-image: url(/assets/img/transitos/calendario.svg);
+
+}
+
+
+input[name='patron'] {
+    
+    background-image: url(/assets/img/transitos/patron.svg);
+
+}
+
+
+label {
+    width: 200px;
+    font-weight: bold;
+}
+
+.formHeader {
+    padding: 6px;
+    font-weight: bold;
+    font-family: 'Questrial', sans-serif;
+    color: #ffffff;
+    background-color: var(--wedgewood950);
+    border-radius: 5px 5px 0px 0px;
+}
+
+.btnCancelar {
+    text-decoration: none;
+    background-color: var(--goldenTainoi300);
+    color: var(--goldenTainoi900);
+}
+
+.btnAdd {
+    background-color: var(--titanWhite900);
+    color: var(--titanWhite50);
+    margin-left: 10px;
+}
+
+.btnVista {
+    background-color: var(--regentStBlue300);
+    color: var(--regentStBlue950);
+    margin-left: 10px;
+}
+
+.btnDelete {
+    background-color: var(--gold500);
+    color: var(--gold950);
+    margin-left: 10px;
+}
+
+.btnBack {
+    background-color: var(--wedgewood500);
+    color: var(--wedgewood50);
+    border-color: var(--wedgewood700);
+}
+
+.imgEmb {
+    width: 200px;
+    height: 200px;
+}

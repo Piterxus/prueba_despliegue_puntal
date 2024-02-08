@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css?family=Questrial&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Inter:400,700&display=swap');
+
+.card {
+
+    width: 256.067px;
+    height: 255px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 20px;
+    z-index: 1;
+
+}
+
+.card .card-header {
+
+    flex-shrink: 0;
+    border-radius: 20px 20px 0px 0px;
+    background: var(--Wedgewood-950, #1D2834);
+    color: #fff;
+    font-family: Questrial;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+.botonVer {
+
+    display: flex;
+    width: 114.707px;
+    height: 35.713px;
+    padding: 10px 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 1px solid var(--Wedgewood-500, #4F7796);
+    background: var(--Wedgewood-500, #4F7796);
+    color: var(--Wedgewood-50, #F5F7FA);
+    text-align: center;
+    font-family: Questrial;
+    font-size: 12.8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+
+}
