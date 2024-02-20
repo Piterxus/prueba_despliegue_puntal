@@ -10,11 +10,17 @@ import { datos } from 'src/resources/datos';
 export class TablaGuardiaComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   datos = datos.transitos;
-  checkboxAll=false;
-  marcar()
+  seleccionados: boolean[] = Array(this.datos.length).fill(false);
+  selectAll: boolean = false;
+  marcar(index: number)
   {
-    this.checkboxAll=true;
+    this.seleccionados[index] = !this.seleccionados[index];
   }
+
+ seleccionarTodas(): void {
+  this.selectAll = !this.selectAll;
+  this.seleccionados.fill(this.selectAll);
+}
 constructor() { 
   console.log(this.datos);
 }

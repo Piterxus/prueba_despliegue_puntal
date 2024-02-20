@@ -1,15 +1,18 @@
-import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
+
+import { Component, OnInit, ChangeDetectorRef, NgZone, ViewChild } from '@angular/core';
 import { SharedDataService } from 'src/app/services/shared-data/shared-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FormdialogoComponent } from '../formdialogo/formdialogo.component';
 import { DilogoForm } from '../dilogo-form';
+import { TablaTripulanteComponent } from '../tabla-tripulante/tabla-tripulante.component';
 @Component({
   selector: 'app-formulario-transito',
   templateUrl: './formulario-transito.component.html',
   styleUrls: ['./formulario-transito.component.css'],
 })
 export class FormularioTransitoComponent implements OnInit {
+  @ViewChild(TablaTripulanteComponent) tripulante!:TablaTripulanteComponent;
   mostrarVacio: boolean = false;
   modoVista: boolean = true;
   modoEdicion: boolean = false;
@@ -17,6 +20,10 @@ export class FormularioTransitoComponent implements OnInit {
   imagenSeleccionada: string | ArrayBuffer | null = null;
   // transitoVacia: any = { datos_tecnicos: '' };
 
+  mostrar :string ='no';
+  noMostrar :string='si';
+  click:boolean=true;
+  noClick:boolean=false;
   constructor(
     private sharedDataService: SharedDataService,
     private activatedRoute: ActivatedRoute,
@@ -25,6 +32,15 @@ export class FormularioTransitoComponent implements OnInit {
     public dialog: MatDialog 
   ) {}
 
+  //conecta en formulario para llmaar a la edicion del formulario y llamar a la edicion del componente de tripulante
+  activarModoEdicionTripulante() {
+    if (this.tripulante) {
+      this.tripulante.anyadirTripulante();
+      this.activarModoEdicion();
+    } else {
+      console.error('Error: TablaTripulanteComponent no está disponible.');
+    }
+  }
   // onMostrarFormulario(tipo: string) {
   //   console.log("onMostrarFormulario");
   //   this.mostrarVacio = tipo === 'vacio';
@@ -47,6 +63,8 @@ export class FormularioTransitoComponent implements OnInit {
   //     this.cdr.detectChanges();
   //   });
   // }
+
+
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -89,6 +107,7 @@ export class FormularioTransitoComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+  
 
   activarModoEdicion() {
     // this.modoEdicion = true;

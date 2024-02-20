@@ -1,4 +1,4 @@
-<table   datatable [dtOptions]="dtOptions"  class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped">
+<table   datatable [dtOptions]="dtOptions"  class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped"  >
     <thead>
         <tr>
             <th [attr.colspan]="12">
@@ -15,14 +15,14 @@
         <th class="text-center">Tipo</th>
         <th class="text-center">Bandera</th>
         <th class="text-center">Estado</th>
-        <th><input (click)="marcar()" class="eliminarTodo" type="checkbox"></th>
-        
+        <th> <input (click)="seleccionarTodas()" class="text-center" type="checkbox" [checked]="selectAll"></th>
 
        
         </tr>
 </thead>
     <tbody>
-        <tr  *ngFor="let item of datos;let i=index" class=" text-center">
+        
+        <tr  *ngFor="let item of datos;let i=index" class=" text-center" [ngClass]="{'color-translucido': seleccionados[i]}" >
             <td>{{item.instalacion}}</td>
             <td>{{item.fecha_entrada}}</td>
             <td>{{item.fecha_salida}}</td>
@@ -31,7 +31,7 @@
             <td>{{item.proposito}}</td>
             <td>{{item.embarcacion}}</td>
             <td class="estados" >{{item.pantalan}}</td>
-            <td><input (click)="marcar()" class="eliminar" type="checkbox"></td>
+            <td><input (click)="marcar(i)" class="eliminar" type="checkbox" [checked]="seleccionados[i]" ></td>
             
             
     

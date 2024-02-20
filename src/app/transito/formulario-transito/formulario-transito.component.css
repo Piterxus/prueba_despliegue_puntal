@@ -7,6 +7,17 @@ form {
     
     background-color: #FFFFFF;
     padding: 15px;
+}
+.tripulante
+{
+    position: relative;
+    left:px;
+}
+
+form {
+    
+    background-color: #FFFFFF;
+    padding: 20px;
     border-radius: 0px 0px 5px 5px;
     box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
 }

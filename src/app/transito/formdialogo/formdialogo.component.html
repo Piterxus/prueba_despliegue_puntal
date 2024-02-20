@@ -1,5 +1,5 @@
 <h1 mat-dialog-title class="dheader">BAJA TRANSITO</h1>
-<div mat-dialog-content class="dbody">
+<div mat-dialog-content class="dbody d-flex justify-content-center align-items-center">
   <form (ngSubmit)="onSubmit()">
     <mat-form-field>
         <label for="embarcacion">Embarcación</label>
@@ -27,8 +27,8 @@
       </mat-form-field>
 
     <div mat-dialog-actions>
-      <button class="btnDelete" mat-button (click)="onNoClick()">Cancelar</button>
-      <button class="btnAdd" mat-button type="submit">Eliminar</button>
+      <button class="btnDelete btn" mat-button (click)="onNoClick()">Cancelar</button>
+      <button class="btnAdd btn" mat-button type="submit">Eliminar</button>
     </div>
   </form>
 </div>

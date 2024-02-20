@@ -1,31 +1,112 @@
-<table      class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped">
-    <thead>
-        <tr>
-            
-                TRIPULANTES
-            
-        
-        <tr class="cabeceraDatos text-center">
-            
-        <th>NOMBRE COMPLETO</th>
-        <th>SEXO</th>
-        <th>N DOCUMENTO</th>
-        <th>NACIONALIDAD</th>
-        
+<ng-container *ngIf="click === true">
+  <img
+    (click)="anyadirTripulante()"
+    class="img"
+    src="/assets/img/transitos/Vector.svg"
+    alt=""
+  />
+</ng-container>
+<table
+  class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped"
+>
+  <thead class="cabeceraDatos text-center">
+    <tr class="cabeceraDatos text-center">
+      <th>NOMBRE COMPLETO</th>
+      <th>SEXO</th>
+      <th>N DOCUMENTO</th>
+      <th>NACIONALIDAD</th>
+    </tr>
 
-       
-        </tr>
-</thead>
-    <tbody>
-        <tr *ngFor="let item of datos;let i=index" class=" text-center">
-            
-            <td>{{item.nombre}}</td>
-            <td>{{item.sexo}}</td>
-            <td>{{item.numero_documento}}</td>
-            <td>{{item.nacionalidad}}</td>
-    
-        </tr>
-       
-    </tbody>
-    
+    <tr></tr>
+  </thead>
+  <tbody>
+    <!-- muestra los datos que hay solo en vista -->
+    <ng-container *ngIf="mostrarDatos && !crearTripulante">
+      <tr *ngFor="let item of datos; let i = index" class="text-center">
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.sexo }}</td>
+        <td>{{ item.numero_documento }}</td>
+        <td>{{ item.nacionalidad }}</td>
+      </tr>
+    </ng-container>
+    <!-- es la tabal que se mostrará en la creacion-->
+    <ng-container *ngIf="!mostrarDatos && !crearTripulante">
+      <tr style="width: 200px; height: 50px">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </ng-container>
+    <!-- muestra inputs cuando se crea un nuevo tripulante -->
+    <ng-container *ngIf="crearTripulante && !mostrarDatos">
+      <tr style="width: 200px; height: 50px">
+        <td>
+          <input
+            type="text"
+            name="nombre"
+            [(ngModel)]="TripulanteSeleccionada.nombre"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="sexo"
+            [(ngModel)]="TripulanteSeleccionada.sexo"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="documento"
+            [(ngModel)]="TripulanteSeleccionada.documento"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="nacionalidad"
+            [(ngModel)]="TripulanteSeleccionada.nacionalidad"
+          />
+        </td>
+      </tr>
+    </ng-container>
+    <!-- muestra datos y permite modificacion  -->
+    <ng-container *ngIf="crearTripulante && mostrarDatos">
+      <tr *ngFor="let item of datos; let i = index" class="text-center">
+        <td>
+          <input
+            type="text"
+            name="nombre"
+            placeholder="{{ item.nombre }}"
+            [(ngModel)]="TripulanteSeleccionada.nombre"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="sexo"
+            placeholder="{{ item.sexo }}"
+            [(ngModel)]="TripulanteSeleccionada.sexo"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="documento"
+            placeholder="{{ item.numero_documento }}"
+            [(ngModel)]="TripulanteSeleccionada.numero_documento"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="nacionalidad"
+            placeholder="{{ item.nacionalidad }}"
+            [(ngModel)]="TripulanteSeleccionada.nacionalidad"
+          />
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
 </table>

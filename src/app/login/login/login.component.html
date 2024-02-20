@@ -1,1 +1,158 @@
-<p>login works!</p>
+<!-- <div class="col-md-12">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form
+      *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+        />
+        <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
+          Username is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">
+          Login
+        </button>
+      </div>
+      <div class="form-group">
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+          Login failed: {{ errorMessage }}
+        </div>
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in as test {{ roles }}.
+    </div>
+  </div>
+</div> -->
+<!-- Agrega la clase vh-100 para el 100% de la altura del viewport -->
+<div class="container-fluid">
+  <div class="row h-75 w-75 postal position-absolute top-50 start-50 translate-middle shadow p-4">
+    <!-- Decoración a la izquierda -->
+    <div class="col-md-6  h-100 d-flex flex-column justify-content-center background-left position-relative ">
+      <div class="welcomeLogin w-100">
+        <h2 class="w-100">BIENVENDIDA.</h2>
+      </div>
+
+
+      <!-- Imagen abajo a la izquierda -->
+      <img src="/assets/img/Group.svg" alt="Logo Portos de  Galicia"
+        class="img-fluid position-absolute bottom-0 start-0 mb-4 ms-3">
+    </div>
+
+    <!-- Formulario de inicio de sesión a la derecha -->
+    <div class="col-md-6 h-100 d-flex flex-column justify-content-center">
+      <div>
+        <h1 class="textHeaderLogin"><strong>Login</strong></h1>
+        <!-- <div  class="text-danger mb-3">
+          {{ errorMessage }}
+        </div> -->
+        <!-- Formulario -->
+        
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div *ngIf="errors?.email" class="alert alert-danger mt-3">
+            {{ errors?.email }}
+        </div>
+        <div *ngIf="errors?.password" class="alert alert-danger mt-3">
+            {{ errors?.password }}
+        </div>
+        <div *ngIf="errors?.error" class="alert alert-danger mt-3">
+            {{ errors?.error }}
+        </div>
+          <!-- Campo de Usuario -->
+          <div class="mb-5">
+            <!-- <label for="usuario" class="form-label">Usuario</label> -->
+            <input type="email" class="form-control" formControlName="email" placeholder="EMAIL"
+           >
+          </div>
+
+          <!-- Campo de Contraseña -->
+          <div class="mb-5">
+            <!-- <label for="contrasena" class="form-label">Contraseña</label> -->
+            <!-- <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="CONTRASEÑA"
+              [(ngModel)]="password"> -->
+              <input type="password" class="form-control" formControlName="password"
+                placeholder="CONTRASEÑA"  >
+              <a href="#" >
+              
+              </a>
+          </div>
+
+          <!-- Contenedor para Checkbox y Enlace -->
+          <div class="mb-5 d-flex justify-content-between align-items-center">
+            <!-- Checkbox para recordar contraseña -->
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="recordarContrasena" name="recordarContrasena"
+              >
+              <label class="remeberPassword" for="recordarContrasena">Recordar contraseña</label>
+            </div>
+
+            <!-- Enlace para recuperar contraseña -->
+            <a href="#" >¿Olvidaste tu contraseña?</a>
+
+          </div>
+
+          <!-- Botón de Inicio de Sesión -->
+          <button type="submit" class=" mt-4 float-end">ENVIAR</button>
+        </form>
+        <ng-template #forgotPasswordModal>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Recuperar Contraseña</h4>
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label for="inputEmail">Correo Electrónico</label>
+              <input type="email" class="form-control" id="inputEmail" name="inputEmail"
+              >
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" >Enviar</button>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

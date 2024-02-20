@@ -1,7 +1,8 @@
 .dbody {
   background: var(--Alto-50, #f7f7f7);
-  height: 847px;
-  width: 774px;
+  height: 800px;
+  width: 500px;
+  padding: 10px;
 }
 
 .dheader {

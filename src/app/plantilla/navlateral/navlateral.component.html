@@ -1,5 +1,7 @@
 <div class="azul500 col-md-2 d-flex flex-column">
-  <img alt="Bootstrap Image Preview" src="assets/img/Group.svg" class="logo" />
+  <img alt="Bootstrap Image Preview" src="/assets/img/Group.svg" class="logo" />
+<!-- <div *ngIf="admin"> -->
+<div>
   <app-boton
   [claseDesbloqueado]="claseBotonDesbloqueado"
   [claseBloqueado]="claseBotonBloqueado"
@@ -15,7 +17,7 @@
   [claseBloqueado]="claseBotonBloqueado"
   [imageUrlDesbloqueado]="imageUrlEmbarcacionDesbloqueado"
   [imageUrlBloqueado]="imageUrlEmbarcacionBloqueado"
-  label="Gestion de embarcaciones"
+  label="Gestión de embarcaciones"
   [route]="embarcacionRoute"
   [bloqueado]="bloqueadoGestionEmbarcaciones"
   (click)="activarGestionEmbarcaciones()"
@@ -25,7 +27,7 @@
   [claseBloqueado]="claseBotonBloqueado"
   [imageUrlDesbloqueado]="imageUrlTransitosDesbloqueado"
   [imageUrlBloqueado]="imageUrlTransitosBloqueado"
-  label="Gestion de transitos"
+  label="Gestión de transitos"
   [route]="transitosRoute"
   [bloqueado]="bloqueadoGestionTransitos"
   (click)="activarGestionTransitos()"
@@ -36,10 +38,11 @@
   [claseBloqueado]="claseBotonBloqueado"
   [imageUrlDesbloqueado]="imageUrlPbDesbloqueado"
   [imageUrlBloqueado]="imageUrlPbBloqueado"
-  label="Gestion de plazas base"
+  label="Gestión de plazas base"
   [route]="plazasBaseRoute"
   [bloqueado]="bloqueadoGestionPlazaBase"
   (click)="activarGestionPlazaBase()"
 ></app-boton>
+</div>
 
 </div>

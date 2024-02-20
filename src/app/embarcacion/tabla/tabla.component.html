@@ -1,4 +1,4 @@
-<div class="tablaEmbarcaciones">
+<!-- <div class="tablaEmbarcaciones">
     <div class="d-flex flex-row-reverse mb-2"><a class="enlaceCreateEmb" routerLink="../formulario"
             [queryParams]="{ tipo: 'vacio' }">EMBARCACIÓN</a></div>
     <table datatable [dtOptions]="dtOptions"
@@ -41,4 +41,47 @@
         </tbody>
 
     </table>
+</div>
+ -->
+<div class="tablaEmbarcaciones">
+    <div class="d-flex flex-row-reverse mb-2"><a class="enlaceCreateEmb" routerLink="../formulario" [queryParams]="{ tipo: 'vacio' }">EMBARCACIÓN</a></div>
+ <table    [dtTrigger]="dtTrigger" datatable [dtOptions]="dtOptions" class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped">
+<thead>
+    <tr>
+        <th [attr.colspan]="12" class="cabeceraTabla">
+            EMBARCACIONES
+        </th>
+    </tr>
+    <tr class="cabeceraDatos">
+        <th class="text-center">Matrícula</th>
+        <th class="text-center">Manga</th>
+        <th class="text-center">Eslora</th>
+        <th class="text-center">Origen</th>
+        <th class="text-center">Titular</th>
+        <th class="text-center">Imagen</th>
+        <th class="text-center">Nº De registro</th>
+        <th class="text-center">Datos técnicos</th>
+        <th class="text-center">Modelo</th>
+        <th class="text-center">Nombre</th>
+        <th class="text-center">Tipo</th>
+    </tr>
+</thead>
+<tbody>
+    <tr (click)="someClickHandler(i)" *ngFor="let item of datos;let i=index" class=" text-center">
+        <td>{{item.Matricula}}</td>
+        <td>{{item.Manga}}</td>
+        <td>{{item.Eslora}}</td>
+        <td>{{item.Origen}}</td>
+        <td>{{item.Titular}}</td>
+        <td>{{item.Imagen}}</td>
+        <td>{{item.Numero_registro}}</td>
+        <td>{{item.Datos_Tecnicos}}</td>
+        <td>{{item.Modelo}}</td>
+        <td>{{item.Nombre}}</td>
+        <td>{{item.Tipo}}</td>
+
+    </tr>
+</tbody>
+
+ </table>
 </div>

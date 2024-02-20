@@ -1,0 +1,144 @@
+h1,
+h2,
+h3 {
+    font-family: 'Questrial', sans-serif;
+}
+
+.welcomeLogin {
+
+
+    display: flex;
+
+    height: 128px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+
+    margin-bottom: 150px;
+
+
+
+
+}
+
+.welcomeLogin h2 {
+    color: black;
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    font-family: Questrial;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    background-color: rgb(0, 0, 0, 0.5);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
+
+    /* -webkit-text-stroke: 1px black, 1px white; */
+
+
+}
+
+.textHeaderLogin {
+    color: #000;
+
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    /* margin-bottom: 150px; */
+}
+
+.background-left {
+    background-image: url(/assets/img/loginBRImage.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+input:not([type="checkbox"]) {
+    border-radius: 0px !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+
+    border-bottom: 3px solid #000 !important;
+    font-family: questrial !important;
+    /* margin-top: 150px !important; */
+}
+
+input:is([type="checkbox"]) {
+
+    width: 27.642px;
+    height: 26.25px;
+    flex-shrink: 0;
+    border: 2px solid;
+    margin-right: 5px;
+}
+
+
+input::placeholder {
+    color: #5E5E5E important !;
+    text-align: center;
+    font-family: Questrial;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #ced4da;
+    /* Cambia el color del borde al hacer foco */
+    box-shadow: none;
+    /* Quita cualquier sombra que se aplique por defecto */
+    outline: none;
+    /* Quita el resaltado predeterminado al hacer foco */
+}
+
+.remeberPassword {
+    color: #000;
+    text-align: center;
+
+    /* Lorem ipsum dolor (0.8em) */
+    font-family: Questrial;
+    font-size: 12.8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+a {
+    color: var(--Titan-White-600);
+    text-align: center;
+
+    text-decoration: none;
+    font-family: Questrial;
+    font-size: 12.8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+button {
+    display: flex;
+    width: 108px;
+    padding: 10px 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #EFF8FF;
+    background: #1D2834;
+    color: rgb(239, 248, 255, 1);
+    text-align: center;
+    font-family: Questrial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    /* 175% */
+}

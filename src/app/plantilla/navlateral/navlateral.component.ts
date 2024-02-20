@@ -15,6 +15,7 @@ export class NavlateralComponent {
   bloqueadoGestionTransitos = false;
   bloqueadoGestionEmbarcaciones = false;
   bloqueadoGestionPlazaBase = false;
+  admin = false;
 
   activarPanelControl(): void {
 
@@ -50,11 +51,11 @@ export class NavlateralComponent {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
 
-  dashboardRoute: string = 'dashboard';
-  transitosRoute: string = 'transito/tabla-transito';
-  embarcacionRoute: string = 'embarcaciones';
-  transitos2Route: string = 'transito/tabla-transito';
-  plazasBaseRoute:string = 'plazabase';
+  dashboardRoute: string = '/dashboard';
+  transitosRoute: string = '/transito';
+  embarcacionRoute: string = '/embarcaciones';
+  transitos2Route: string = '/transito';
+  plazasBaseRoute:string = '/plazabase';
 
 
   imageUrlDashboardDesbloqueado = 'assets/img/control.svg';

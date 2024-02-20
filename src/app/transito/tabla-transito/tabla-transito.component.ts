@@ -20,10 +20,8 @@ export class TablaTransitoComponent implements OnInit {
   someClickHandler(index: number): void {
     const rowData = this.datos[index];
     this.sharedDataService.setData('transitoSeleccionada', rowData);
-    this.router.navigate(['/transito/formulario'], {
-      queryParams: { tipo: 'vista' }, // O 'vacio' según tus necesidades
-    }); // Si no es con ruta abosulta, no funciona
-    // this.router.navigate(['../formulario'], { relativeTo: this.activatedRoute.parent });
+    this.router.navigate(['formulario'], { relativeTo: this.activatedRoute.parent, queryParams: { tipo: 'vista' } });
+
   }
   ngOnInit(): void {
     console.log(this.datos);
@@ -33,7 +31,7 @@ export class TablaTransitoComponent implements OnInit {
       processing: true,
       language: {
         url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
-       // url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ko.json',
+     
       },
     };
   }

@@ -582,7 +582,77 @@ export const datos = {
             titular: "Ana Martínez",
             datos_estancia: "A",
             inicio: "2024-01-14",
-         }
+         },
+
+         {
+            fecha_entrada: "2024-02-03T08:30:00",
+            embarcacion: "Velero Blanco",
+            instalacion: "Puerto Sur",
+            pantalan: "P-3",
+            amarre: "A-102",
+            autorizaciones: "Permiso 456",
+            titular: "María García",
+            datos_estancia: "B",
+            inicio: "2024-02-03"
+         },
+         {
+            fecha_entrada: "2024-02-10T13:15:00",
+            embarcacion: "Barco Gris",
+            instalacion: "Puerto Noroeste",
+            pantalan: "P-6",
+            amarre: "A-512",
+            autorizaciones: "Permiso 789",
+            titular: "Pedro Sánchez",
+            datos_estancia: "B",
+            inicio: "2024-02-10"
+        },
+        {
+            fecha_entrada: "2024-02-05T10:45:00",
+            embarcacion: "Velero Negro",
+            instalacion: "Puerto Suroeste",
+            pantalan: "P-11",
+            amarre: "A-201",
+            autorizaciones: "Permiso 456",
+            titular: "Sofía Ramírez",
+            datos_estancia: "A",
+            inicio: "2024-02-05"
+        },
+        {
+            fecha_entrada: "2024-02-12T09:00:00",
+            embarcacion: "Yate Azul",
+            instalacion: "Puerto Noreste",
+            pantalan: "P-2",
+            amarre: "A-403",
+            autorizaciones: "Permiso 654",
+            titular: "Andrés García",
+            datos_estancia: "C",
+            inicio: "2024-02-12"
+        },
+        {
+            fecha_entrada: "2024-02-08T14:30:00",
+            embarcacion: "Catamarán Amarillo",
+            instalacion: "Puerto Sureste",
+            pantalan: "P-4",
+            amarre: "A-610",
+            autorizaciones: "Permiso 123",
+            titular: "Lucía Fernández",
+            datos_estancia: "B",
+            inicio: "2024-02-08"
+        },
+        {
+            fecha_entrada: "2024-02-15T11:20:00",
+            embarcacion: "Crucero Blanco",
+            instalacion: "Puerto Surcentral",
+            pantalan: "P-10",
+            amarre: "A-705",
+            autorizaciones: "Permiso 321",
+            titular: "Manuel Martínez",
+            datos_estancia: "A",
+            inicio: "2024-02-15"
+        }
+        
+         
+
           
     ]
 
