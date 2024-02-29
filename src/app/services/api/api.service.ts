@@ -9,7 +9,9 @@ import { Observable, tap } from 'rxjs'; // Importación de módulos necesarios p
   providedIn: 'root'
 }) // Decorador que permite inyectar dependencias al servicio
 export class ApiService {
-  private apiUrl = 'http://127.0.0.1:8000/api/v1/'; // URL de la API a la que se realizarán las peticiones
+
+  private apiUrl = 'http://alum1.iesfsl.org/api/v1/';
+  // private apiUrl = 'http://127.0.0.1:8000/api/v1/'; // URL de la API a la que se realizarán las peticiones
   constructor(private http: HttpClient) { } // Inyección de dependencia HttpClient. En este caso, se inyecta el servicio HttpClient
 
 
@@ -73,13 +75,13 @@ export class ApiService {
     return this.http.get(urls);
   }
 
-//de la api cogemos la estancia media de plazas base
+  //de la api cogemos la estancia media de plazas base
   getEstancia(): Observable<any> {
     const urls = `${this.apiUrl}${'plazaBase/estancia'}`;
     return this.http.get(urls);
   }
 
-//de la api cogemos la estancia media de transitos
+  //de la api cogemos la estancia media de transitos
   getEstancia2(): Observable<any> {
     const urls = `${this.apiUrl}${'transito/estancia'}`;
     return this.http.get(urls);
@@ -91,101 +93,100 @@ export class ApiService {
     return this.http.get(urls);
   }
 
-//de la api cogemos los tipos de embarcaciones
+  //de la api cogemos los tipos de embarcaciones
   getTiposEmbarcaciones(): Observable<any> {
     const urls = `${this.apiUrl}${'embarcacion/tipos'}`;
     return this.http.get(urls);
   }
 
-  getGuardiaCivil():Observable<any>
-  {
+  getGuardiaCivil(): Observable<any> {
     const urls = `${this.apiUrl}${'transito/guardia'}`;
     return this.http.get(urls);
   }
 
 
-//de la api cogemos los tipos de embarcaciones
-getTablaPB(): Observable<any> {
-  const urls = `${this.apiUrl}${'plazaBase/paratabla'}`;
-  return this.http.get(urls);
-}
+  //de la api cogemos los tipos de embarcaciones
+  getTablaPB(): Observable<any> {
+    const urls = `${this.apiUrl}${'plazaBase/paratabla'}`;
+    return this.http.get(urls);
+  }
 
-getEmbarcaciones(): Observable<any[]> {
-  return this.http.get<any[]>(`${this.apiUrl}embarcacion`);
-}
+  getEmbarcaciones(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}embarcacion`);
+  }
 
-getTitularEmbarcacion(embarcacionId: number): Observable<any[]> {
-  const url = `${this.apiUrl}embarcacion/${embarcacionId}/titular`;
-  console.log(url);
-  return this.http.get<any>(url);
-}
-
-
-postAdministrativoAmarre(id: any, data: any): Observable<any> {
-  const url = `${this.apiUrl}plazaBase/${id}/administrativoyAmarre`;
-  console.log(url);
-  console.log(data);
-  return this.http.post(url, data);
-}
-
-postAlquiler(id: any, data: any): Observable<any> {
-  const url = `${this.apiUrl}plazaBase/alquiler/${id}`;
-  console.log(url);
-  return this.http.post(url, data);
-}
+  getTitularEmbarcacion(embarcacionId: number): Observable<any[]> {
+    const url = `${this.apiUrl}embarcacion/${embarcacionId}/titular`;
+    console.log(url);
+    return this.http.get<any>(url);
+  }
 
 
-putDisponibleOcupado(id: any, data?: any): Observable<any> {
-  const url = `${this.apiUrl}plaza/${id}/actualizaEstadoOcupado`;
-  console.log(url);
-  return this.http.put(url, data);
-}
+  postAdministrativoAmarre(id: any, data: any): Observable<any> {
+    const url = `${this.apiUrl}plazaBase/${id}/administrativoyAmarre`;
+    console.log(url);
+    console.log(data);
+    return this.http.post(url, data);
+  }
+
+  postAlquiler(id: any, data: any): Observable<any> {
+    const url = `${this.apiUrl}plazaBase/alquiler/${id}`;
+    console.log(url);
+    return this.http.post(url, data);
+  }
 
 
-putEli(id: any, data?: any): Observable<any> {
-  const url = `${this.apiUrl}plazaBase/${id}/eli`;
-  console.log(url);
-  return this.http.put(url, data);
-}
+  putDisponibleOcupado(id: any, data?: any): Observable<any> {
+    const url = `${this.apiUrl}plaza/${id}/actualizaEstadoOcupado`;
+    console.log(url);
+    return this.http.put(url, data);
+  }
 
 
-putOcupadoDisponible(id: any, data?: any): Observable<any> {
-  const url = `${this.apiUrl}plaza/${id}/actualizaEstadoDisponible`;
-  console.log(url);
-  return this.http.put(url, data);
-}
-
-putActuaFin(id: any, data: any): Observable<any> {
-  const url = `${this.apiUrl}plazaBase/${id}/actuFin`;
-  console.log(url);
-  return this.http.put(url, data);
-}
+  putEli(id: any, data?: any): Observable<any> {
+    const url = `${this.apiUrl}plazaBase/${id}/eli`;
+    console.log(url);
+    return this.http.put(url, data);
+  }
 
 
+  putOcupadoDisponible(id: any, data?: any): Observable<any> {
+    const url = `${this.apiUrl}plaza/${id}/actualizaEstadoDisponible`;
+    console.log(url);
+    return this.http.put(url, data);
+  }
 
-getInstalaciones(): Observable<any[]> {
-  const url = `${this.apiUrl}instalacion`;
-  console.log(url);
-  return this.http.get<any[]>(url);
-}
+  putActuaFin(id: any, data: any): Observable<any> {
+    const url = `${this.apiUrl}plazaBase/${id}/actuFin`;
+    console.log(url);
+    return this.http.put(url, data);
+  }
 
-getPantalanes(instalacionId: number): Observable<any> {
-  const url = `${this.apiUrl}instalacion/${instalacionId}/pantalanes`;
-  console.log(url);
-  return this.http.get<any>(url);
-}
 
-getAmarres(pantalanId: number): Observable<any> {
-  const url = `${this.apiUrl}pantalan/${pantalanId}/amarres`;
-  console.log('GET request to:', url);
-  return this.http.get<any>(url);
-}
 
-getAmarresTransito(pantalanId: number): Observable<any> {
-  const url = `${this.apiUrl}pantalan/${pantalanId}/amarrestr`;
-  console.log('GET request to:', url);
-  return this.http.get<any>(url);
-}
+  getInstalaciones(): Observable<any[]> {
+    const url = `${this.apiUrl}instalacion`;
+    console.log(url);
+    return this.http.get<any[]>(url);
+  }
+
+  getPantalanes(instalacionId: number): Observable<any> {
+    const url = `${this.apiUrl}instalacion/${instalacionId}/pantalanes`;
+    console.log(url);
+    return this.http.get<any>(url);
+  }
+
+  getAmarres(pantalanId: number): Observable<any> {
+    const url = `${this.apiUrl}pantalan/${pantalanId}/amarres`;
+    console.log('GET request to:', url);
+    return this.http.get<any>(url);
+  }
+
+  getAmarresTransito(pantalanId: number): Observable<any> {
+    const url = `${this.apiUrl}pantalan/${pantalanId}/amarrestr`;
+    console.log('GET request to:', url);
+    return this.http.get<any>(url);
+  }
 
 
 
@@ -194,15 +195,14 @@ getAmarresTransito(pantalanId: number): Observable<any> {
     return this.http.get(url)
   }
 
-  leidoCreate(data:any):Observable<any>
-  {
+  leidoCreate(data: any): Observable<any> {
     const url = `${this.apiUrl}${"guardiaCivil/leido"}`;
     console.log(data);
-    return this.http.get(url,data)
-    .pipe(
-      tap(response => console.log('Respuesta del servicio:', response))
-    );
-    
+    return this.http.get(url, data)
+      .pipe(
+        tap(response => console.log('Respuesta del servicio:', response))
+      );
+
   }
 
   getAll(entity: string): Observable<any> {
