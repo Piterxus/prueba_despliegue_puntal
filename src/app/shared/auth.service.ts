@@ -25,7 +25,9 @@ export class AuthService {
   }
   // Login, se envía una petición HTTP POST al servidor con los datos del usuario. En uso
   signin(user: User): Observable<any> {
-    return this.http.post<any>('http://127.0.0.1:8000/api/auth/login', user);
+   
+    // return this.http.post<any>('http://127.0.0.1:8000/api/auth/login', user);
+    return this.http.post<any>('http://alum1.iesfsl.org/api/auth/login', user);
   }
   // Access user profile. Se envía una petición HTTP GET al servidor para obtener el perfil del usuario. Por ahora no se usa.
   profileUser(): Observable<any> {
