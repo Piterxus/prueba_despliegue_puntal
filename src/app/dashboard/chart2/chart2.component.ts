@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js/auto';
+import { Chart, ChartType } from 'chart.js/auto';
+import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
   selector: 'app-chart2',
@@ -7,50 +8,41 @@ import { Chart } from 'chart.js/auto';
   styleUrls: ['./chart2.component.css']
 })
 export class Chart2Component implements AfterViewInit  {
-    ngAfterViewInit(){
-
-   // const ctx = document.getElementById('myChart2');
-  //"ctx" hace referencia al id del componente canvas
   
-    const myChart2 = new Chart("ctx2", {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','prueba','prueba2'],
+       constructor(private apiService: ApiService) {}
+    
+    ngAfterViewInit(): void {
+      this.apiService.getEstancia2().subscribe(data => {
+        const ctx = document.getElementById('ctx2') as HTMLCanvasElement;
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Meses', 'Días'],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3,9,7],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+              label: 'Duración media de estancia',
+              data: [data.meses, data.dias],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(75, 192, 192, 1)'
+              ],
+              borderWidth: 1
             }]
-        },
-        options: {
+          },
+          options: {
             scales: {
-                y: {
-                    beginAtZero: true
-                }
+              y: {
+                beginAtZero: true
+              }
             }
-        }
-    });
-  }
-  
-
-}
+          }
+        });
+      });
+    }
+    }
+    

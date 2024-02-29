@@ -2,58 +2,41 @@
 
 <div class="card">
     <div class="card-header">
-        INCIDENCIA INSTALACIONES
+       NOTIFICAR INCIDENCIA
     </div>
     <div class="card-body">
-
-
-        <div class="container-fluid">
-
-            <div class="row justify-content-center">
-                <div class="col-12 text-center mt-4">
-                    <img src="/assets/img/image-outline.svg" alt="Foto Incidencia" class="img-fluid">
-                </div>
+        <form [formGroup]="formulario" id="formIncidencia" action="" (ngSubmit)="guardarIncidencia()" enctype="multipart/form-data">
+            <div class="col-12 text-center">
+                <input id="imgInci" formControlName="Imagen" type="file" class="form-control mt-4" (change)="onFileSelected($event)" />
             </div>
-
-
-
-
+            <div class="d-flex justify-content-center">
+                <img class="imgEmb" [src]="imagenSeleccionada  || '/assets/img/embarcaciones/image-outline.svg'" alt="" />
+            </div>
 
             <div class="row justify-content-center">
                 <div class="col-12 mt-5">
-                    <form>
-                        <div class="form-group mt-1">
-                            <label for="titulo">Título:</label>
-                            <input type="text" class="form-control" id="titulo" placeholder="Ingrese el título">
+                    <div class="form-group mt-1">
+                        <label for="titulo">Título:</label>
+                        <input  formControlName="Titulo" type="text" class="form-control" id="titulo" placeholder="Ingrese el título">
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea  formControlName="Descripcion" class="form-control" id="descripcion" style="resize: none;" rows="5" placeholder="Ingrese la descripción"></textarea>
+                    </div>
+
+                    <!-- <input formControlName="Guardamuelle_id" type="hidden" [value]="guardamuelles_id"> -->
+
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-6 text-center">
+                            <a href="" class="btn cancelar" routerLink="/movil"><b>CANCELAR</b></a>
                         </div>
-                        <div class="form-group mt-4">
-                            <label for="descripcion">Descripción:</label>
-                            <textarea class="form-control" id="descripcion" style="resize: none;" rows="5"
-                                placeholder="Ingrese la descripción"></textarea>
+
+                        <div class="col-6 text-center">
+                            <button type="submit" class="btn aceptar"><b>ACEPTAR</b></button>
                         </div>
-
-                        <div class="row justify-content-center mt-5">
-
-                            <div class="col-6 text-center ">
-                                <a href="" class="btn cancelar"><b>CANCELAR</b></a>
-                            </div>
-
-                            <div class="col-6 text-center ">
-                                <button type="submit" class="btn aceptar"><b>ACEPTAR</b></button>
-                            </div>
-
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-
-
-        </div>
-
-
-
-
-
-
+        </form>
     </div>
 </div>

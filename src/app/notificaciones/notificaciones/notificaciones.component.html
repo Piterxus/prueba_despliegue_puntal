@@ -1,5 +1,6 @@
 <div class="notificaciones">
   <table
+   [dtTrigger]="dtTrigger"
     datatable
     [dtOptions]="dtOptions"
     class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped"
@@ -13,17 +14,21 @@
         <th class="text-center">Título</th>
         <th class="text-center">Descripción</th>
         <th class="text-center">Foto</th>
+     
       </tr>
     </thead>
     <tbody>
       <tr
         *ngFor="let item of datos; let i = index"
         class="filaPersonalizada text-center"
+        [style.opacity]="item.Leido === 1 ? '0.5' : '1'"
+       (click)="someClickHandler(i)"
       >
-        <td class="p-4">{{ item.GuardamuellesID }}</td>
+        <td class="p-4">{{ item.Guardamuelle_nombre }}</td>
         <td class="p-4">{{ item.Titulo }}</td>
         <td class="p-4">{{ item.Descripcion }}</td>
-        <td class="p-4">{{ item.Foto }}</td>
+        <td class="p-4">{{ item.Imagen }}</td>
+        
       </tr>
     </tbody>
   </table>
@@ -32,6 +37,9 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">{{tituloModal}}</h4>
+           <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
         </div>
 
         <div class="modal-body">{{cuerpoModal}}</div>
@@ -41,7 +49,8 @@
         <div class="modal-footer justify-content-around">
           <button
             type="button"
-            (click)="closeModal()"
+            *ngIf="!selectedItem?.Leido"
+            (click)="marcarLeido(selectedItem.id)"
             class="btn"
             data-bs-dismiss="modal"
           >
@@ -49,7 +58,7 @@
           </button>
           <button
             type="button"
-            (click)="closeModal()"
+            (click)="eliminarIncidencia(selectedItem.id)"
             class="btn"
             data-bs-dismiss="modal"
           >   <img src="/assets/img/closeNots.svg" alt=""></button>

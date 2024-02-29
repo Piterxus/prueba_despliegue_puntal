@@ -1,21 +1,26 @@
-import { Injectable } from '@angular/core';
-
+import { Injectable } from '@angular/core'; // Decorador que permite inyectar dependencias al servicio
+// import { BehaviorSubject } from 'rxjs'; // Importación de módulos necesarios para manejo de observables
 @Injectable({
   providedIn: 'root'
 })
+// Servicio TokenService
 export class TokenService {
+  // Objeto que almacena las rutas de acceso a los endpoints de autenticación
   private issuer = {
     login: 'http://127.0.0.1:8000/api/auth/login',
     register: 'http://127.0.0.1:8000/api/auth/register',
   };
+  // Método constructor para crear un objeto del servicio
   constructor() { }
+  // Almacenar el token de autenticación
   handleData(token: any) {
     localStorage.setItem('auth_token', token);
   }
+  // Obtener el token de autenticación
   getToken() {
     return localStorage.getItem('auth_token');
   }
-  // Verify the token
+  // Verificar si el token es válido
   isValidToken() {
     const token = this.getToken();
     if (token) {
@@ -29,16 +34,18 @@ export class TokenService {
       return false;
     }
   }
-  // payload(token: any) {
-  //   const jwtPayload = token.split('.')[1];
-  //   return JSON.parse(atob(jwtPayload));
-  // }
+  // Obtener el payload del token. El payload es la parte del token que contiene la información del usuario.
   payload(token: any) {
+    // Inevitable manejarlo así. Devuelve valor true o false, pero no token.
+    if (token === 'true') {
+      return { authenticated: token };
+    }
+
     if (!token) {
       this.removeToken();
       return null;
     }
-  
+
     try {
       const jwtPayload = token.split('.')[1];
       return JSON.parse(atob(jwtPayload));
@@ -48,12 +55,16 @@ export class TokenService {
       return null;
     }
   }
-  // User state based on valid token
+
+  // Verificar si el usuario está autenticado
   isLoggedIn() {
     return this.isValidToken();
   }
-  // Remove token
+  // Eliminar el token de autenticación y otros datos del usuario de la memoria local.
   removeToken() {
     localStorage.removeItem('auth_token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('role');
+    localStorage.removeItem('name');
   }
 }

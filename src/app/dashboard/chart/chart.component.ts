@@ -1,42 +1,34 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Chart, ChartType } from 'chart.js/auto';
+import { ApiService } from 'src/app/services/api/api.service';
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements AfterViewInit {
-  ngAfterViewInit(){ 
+  constructor(private apiService: ApiService) {}
 
-    const ctx = document.getElementById('myChart');
-    //"ctx" hace referencia al id del componente canvas
-
-    const myChart = new Chart("ctx", {
+ngAfterViewInit(): void {
+  this.apiService.getEstancia().subscribe(data => {
+    const ctx = document.getElementById('ctx')as HTMLCanvasElement;
+    console.log(ctx);
+    new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'prueba', 'prueba2'],
+        labels: ['Años', 'Meses', 'Días'],
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3, 9, 7],
+          label: 'Duración media de estancia',
+          data: [data.anyos, data.meses, data.dias],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            'rgba(75, 192, 192, 0.2)'
           ],
           borderColor: [
             'rgba(255, 99, 132, 1)',
             'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
+            'rgba(75, 192, 192, 1)'
           ],
           borderWidth: 1
         }]
@@ -49,7 +41,6 @@ export class ChartComponent implements AfterViewInit {
         }
       }
     });
-  }
-
-
+  });
+}
 }

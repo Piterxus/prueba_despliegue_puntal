@@ -15,8 +15,9 @@ import { PlazaBaseModule } from './plaza-base/plaza-base.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { ErrorHandlerComponent } from './error-handler/error-handler.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ErrorHandlerComponent],
 
   imports: [
     BrowserModule,
@@ -34,6 +35,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    
 
   ],
 
@@ -41,7 +43,8 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+  },
+],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

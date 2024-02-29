@@ -7,13 +7,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./embarcaciones.component.css']
 })
 export class EmbarcacionesComponent {
-// mostrarTabla = true;
+
 
   constructor(private route: ActivatedRoute) {}
 
-  // mostrarFormulario() {
-  //   this.mostrarTabla = false;
-  // }
+
 
 
 }

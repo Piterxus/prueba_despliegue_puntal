@@ -1,0 +1,21 @@
+.errorContainer{
+
+    background-color: var(--wedgewood300);
+    height: 100vh;
+
+}
+.errorPage{
+    text-align: center;
+   
+    
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    box-shadow: 2px 2px 5px 2px var(--wedgewood950);
+  
+    background-color: var(--wedgewood500);
+}
+
+.btn{
+    box-shadow: 1px 1px 3px 1px var(--wedgewood950);
+}

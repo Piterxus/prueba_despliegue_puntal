@@ -23,10 +23,10 @@
     <!-- muestra los datos que hay solo en vista -->
     <ng-container *ngIf="mostrarDatos && !crearTripulante">
       <tr *ngFor="let item of datos; let i = index" class="text-center">
-        <td>{{ item.nombre }}</td>
-        <td>{{ item.sexo }}</td>
-        <td>{{ item.numero_documento }}</td>
-        <td>{{ item.nacionalidad }}</td>
+        <td>{{ item.Nombre }}</td>
+        <td>{{ item.Sexo }}</td>
+        <td>{{ item.NumeroDeDocumento }}</td>
+        <td>{{ item.Nacionalidad }}</td>
       </tr>
     </ng-container>
     <!-- es la tabal que se mostrará en la creacion-->
@@ -39,7 +39,8 @@
       </tr>
     </ng-container>
     <!-- muestra inputs cuando se crea un nuevo tripulante -->
-    <ng-container *ngIf="crearTripulante && !mostrarDatos">
+    <ng-container *ngIf="crearTripulante && !mostrarDatos" >
+      <ng-container  *ngFor="let index of getInputsArray()" >
       <tr style="width: 200px; height: 50px">
         <td>
           <input
@@ -71,41 +72,16 @@
         </td>
       </tr>
     </ng-container>
+    </ng-container>
     <!-- muestra datos y permite modificacion  -->
     <ng-container *ngIf="crearTripulante && mostrarDatos">
+      
       <tr *ngFor="let item of datos; let i = index" class="text-center">
-        <td>
-          <input
-            type="text"
-            name="nombre"
-            placeholder="{{ item.nombre }}"
-            [(ngModel)]="TripulanteSeleccionada.nombre"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            name="sexo"
-            placeholder="{{ item.sexo }}"
-            [(ngModel)]="TripulanteSeleccionada.sexo"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            name="documento"
-            placeholder="{{ item.numero_documento }}"
-            [(ngModel)]="TripulanteSeleccionada.numero_documento"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            name="nacionalidad"
-            placeholder="{{ item.nacionalidad }}"
-            [(ngModel)]="TripulanteSeleccionada.nacionalidad"
-          />
-        </td>
+      
+        <td><input type="text" value="{{ item.Nombre }}"></td> 
+        <td> <input type="text" value="{{ item.Sexo }}" ></td> 
+        <td> <input type="text" value="{{ item.NumeroDeDocumento }}" ></td> 
+        <td><input type="text" value="{{ item.Nacionalidad }}" ></td>
       </tr>
     </ng-container>
   </tbody>

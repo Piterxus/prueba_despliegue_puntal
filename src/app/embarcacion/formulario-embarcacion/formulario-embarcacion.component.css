@@ -31,43 +31,43 @@ input {
 
 }
 
-input[name='nombre'] {
+input[name='Nombre'] {
     background-image: url(/assets/img/embarcaciones/formIcon_user.svg);
 
 }
 
-input[name='matricula'] {
+input[name='Matricula'] {
     background-image: url(/assets/img/embarcaciones/formIcon_mat.svg);
 
 }
 
-input[name='modelo'] {
+input[name='Modelo'] {
     background-image: url(/assets/img/embarcaciones/formIcon_modelo.svg);
 
 }
 
-input[name='origen'] {
+input[name='Origen'] {
     background-image: url(/assets/img/embarcaciones/formIcon_band.svg);
 
 }
 
-input[name='titular'] {
+input[name='Titular'] {
     background-image: url(/assets/img/embarcaciones/formIcon_tit.svg);
 
 }
 
-input[name='registro'] {
+input[name='Numero_registro'] {
     background-image: url(/assets/img/embarcaciones/formIcon_reg.svg);
 
 }
 
-input[name='eslora'],
-input[name="manga"] {
+input[name='Eslora'],
+input[name="Manga"] {
     background-image: url(/assets/img/embarcaciones/formIcon_es.svg);
 
 }
 
-input[name='tipo'] {
+input[name='Tipo'] {
     background-image: url(/assets/img/embarcaciones/formIcon_tip.svg);
 
 }

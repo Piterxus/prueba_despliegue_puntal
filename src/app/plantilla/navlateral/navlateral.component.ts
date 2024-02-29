@@ -16,6 +16,7 @@ export class NavlateralComponent {
   bloqueadoGestionEmbarcaciones = false;
   bloqueadoGestionPlazaBase = false;
   admin = false;
+  role = localStorage.getItem('role');
 
   activarPanelControl(): void {
 

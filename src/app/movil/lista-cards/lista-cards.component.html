@@ -1,3 +1,4 @@
+<!-- <app-card-transito></app-card-transito>
 <app-card-transito></app-card-transito>
 <app-card-transito></app-card-transito>
 <app-card-transito></app-card-transito>
@@ -6,5 +7,26 @@
 <app-card-transito></app-card-transito>
 <app-card-transito></app-card-transito>
 <app-card-transito></app-card-transito>
-<app-card-transito></app-card-transito>
-<app-card-transito></app-card-transito> 
+<app-card-transito></app-card-transito>  -->
+
+<div *ngFor="let transito of datos" class="card">
+    <div class="card-header">
+      Tránsito
+    </div>
+    <div class="card-body">
+       <b>Ubicación:</b> {{ transito.ubicacion }}
+       <br>
+       <b>Matrícula:</b> {{ transito.Matricula }}
+       <br>
+       <b>Llegada:</b> {{ transito.FechaEntrada }}
+       <br>
+       <b>Salida:</b> {{ transito.FechaSalida }}
+       <br>
+       <b>Estado:</b> {{ transito.Estatus }}
+       <br> 
+       <a (click)="verTransito(transito)" class="btn mt-1 ml-5 botonVer"><b>VER</b></a>
+    </div>
+  </div>
+  <br><br>
+  
+

@@ -1,15 +1,32 @@
-<nav class="arriba navbar navbar-expand-sm  navbar-dark test1 d-flex justify-content-end">
-  <div class="d-flex  justify-content-center">
-    <h3>¡Hola {{name}}!</h3>
-    <a class="navbar-brand" routerLink="../notificaciones">
-      <img src="/assets/img/nots.svg" alt="Avatar Logo" style="width:40px;" class="rounded-pill notIcon">
+<nav
+  class="arriba navbar navbar-expand-sm navbar-dark test1 d-flex justify-content-end"
+>
+  <div class="d-flex justify-content-center">
+    <h3>¡Hola {{ name }}!</h3>
+    <a *ngIf="role==='2'" class="navbar-brand" routerLink="../notificaciones">
+    <!-- <a class="navbar-brand" routerLink="../notificaciones"> -->
+      <img
+        src="/assets/img/nots.svg"
+        alt="Avatar Logo"
+        style="width: 40px"
+        class="rounded-pill notIcon"
+      />
     </a>
     <a class="navbar-brand" href="#">
-      <img src="/assets/img/user.svg" alt="Avatar Logo" style="width:40px;" class="rounded-pill userIcon">
+      <img
+        src="/assets/img/user.svg"
+        alt="Avatar Logo"
+        style="width: 40px"
+        class="rounded-pill userIcon"
+      />
     </a>
     <a class="navbar-brand" href="" (click)="logout()">
-      <img src="/assets/img/logout.svg"  alt="Avatar Logo" style="width:40px;" class="rounded-pill logoutIcon">
+      <img
+        src="/assets/img/logout.svg"
+        alt="Avatar Logo"
+        style="width: 40px"
+        class="rounded-pill logoutIcon"
+      />
     </a>
   </div>
 </nav>
-

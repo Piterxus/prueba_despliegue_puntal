@@ -6,10 +6,11 @@ import { EmbarcacionesComponent } from './embarcaciones/embarcaciones.component'
 import { FormularioEmbarcacionComponent } from './formulario-embarcacion/formulario-embarcacion.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { FormdialogoemComponent } from './formdialogoem/formdialogoem.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormdialogoemComponent } from './formdialogoem/formdialogoem.component';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     CommonModule,
     DataTablesModule,
     AppRoutingModule,
+    // RouterModule.forChild(routes),
     FormsModule,
     MatDialogModule,
     MatFormFieldModule,

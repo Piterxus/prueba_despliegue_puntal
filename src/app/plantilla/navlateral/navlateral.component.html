@@ -1,7 +1,8 @@
 <div class="azul500 col-md-2 d-flex flex-column">
   <img alt="Bootstrap Image Preview" src="/assets/img/Group.svg" class="logo" />
 <!-- <div *ngIf="admin"> -->
-<div>
+<div *ngIf="role==='2'">
+  <!-- <div> -->
   <app-boton
   [claseDesbloqueado]="claseBotonDesbloqueado"
   [claseBloqueado]="claseBotonBloqueado"

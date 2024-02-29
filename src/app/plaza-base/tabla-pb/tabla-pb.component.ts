@@ -1,7 +1,9 @@
-import { Component,OnInit , Output, EventEmitter } from '@angular/core';
-import { datos } from 'src/resources/datos';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SharedDataService } from 'src/app/services/shared-data/shared-data.service';
+import { ApiService } from 'src/app/services/api/api.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-tabla-pb',
@@ -10,36 +12,45 @@ import { SharedDataService } from 'src/app/services/shared-data/shared-data.serv
 })
 
 export class TablaPbComponent implements OnInit {
-
-    dtOptions: DataTables.Settings = {};
-    datos = datos.plazaBase;
+  dtOptions: DataTables.Settings = {};
+  datos: any = [];
+  dtTrigger: Subject<any> = new Subject<any>();
     constructor(
       private router: Router,
       private activatedRoute: ActivatedRoute,
-      private sharedDataService: SharedDataService
+      private sharedDataService: SharedDataService,
+      private apiService: ApiService,
+      private http: HttpClient
     ){}
   
     someClickHandler(index: number): void {
       const rowData = this.datos[index];
       this.sharedDataService.setData('plazaBSeleccionada', rowData);
-      this.router.navigate(['/plazabase/formulario'], {
-        queryParams: { tipo: 'vista' }, // O 'vacio' según tus necesidades
-      }); // Si no es con ruta abosulta, no funciona
-              
-      // this.router.navigate(['../formulario'], { relativeTo: this.activatedRoute.parent });
+      this.router.navigate(['/plazabase/formulario'], {  relativeTo: this.activatedRoute.parent, queryParams: { tipo: 'vista' } });
+
+ 
     }
 
   
   ngOnInit(): void {
-    console.log(this.datos);
+    this.apiService.getTablaPB().subscribe(data => {
+      this.datos = data;
+ 
+      console.log('Después de la llamada a la API:', this.datos);
+      this.dtTrigger.next(data); 
+
+    });
+ 
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 10,
+      pageLength: 3,
       processing: true,
       language: {
-        url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json',
+        url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
       },
-    };
+         };
+
+    
   }
   
 }

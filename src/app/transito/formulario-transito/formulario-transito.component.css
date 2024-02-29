@@ -53,11 +53,7 @@ input[name='proposito'] {
 }
 
 
-input[name='fecha_entrada'],
-input[name="fecha_salida"] {
-    background-image: url(/assets/img/transitos/calendario.svg);
 
-}
 
 
 input[name='patron'] {

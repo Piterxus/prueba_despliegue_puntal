@@ -1,4 +1,4 @@
-<table   datatable [dtOptions]="dtOptions"  class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped"  >
+<table [dtTrigger]="dtTrigger"  datatable [dtOptions]="dtOptions"  class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped"  >
     <thead>
         <tr>
             <th [attr.colspan]="12">
@@ -22,16 +22,16 @@
 </thead>
     <tbody>
         
-        <tr  *ngFor="let item of datos;let i=index" class=" text-center" [ngClass]="{'color-translucido': seleccionados[i]}" >
-            <td>{{item.instalacion}}</td>
-            <td>{{item.fecha_entrada}}</td>
-            <td>{{item.fecha_salida}}</td>
-            <td>{{item.amarre}}</td>
-            <td>{{item.patron}}</td>
-            <td>{{item.proposito}}</td>
-            <td>{{item.embarcacion}}</td>
-            <td class="estados" >{{item.pantalan}}</td>
-            <td><input (click)="marcar(i)" class="eliminar" type="checkbox" [checked]="seleccionados[i]" ></td>
+        <tr  *ngFor="let transit of datos;let i=index" class=" text-center" [ngClass]="{'color-translucido': seleccionados[i]}" class="estados" >
+            <td>{{ transit.ubicacion }}</td>
+            <td>{{ transit.FechaEntrada }}</td>
+            <td>{{ transit.FechaSalida }}</td>
+            <td>{{ transit.Matricula }}</td>
+            <td>{{ transit.Titular }}</td>
+            <td>{{ transit.Tipo }}</td>
+            <td>{{ transit.Origen }}</td>
+            <td [ngClass]="{'fondo-amarillo': transit.Estatus === 'Salida', 'fondo-azul': transit.Estatus === 'Entrada'}" class="estatus" >{{ transit.Estatus }}</td>
+            <td><input (click)="marcar(i,transit)" class="eliminar" type="checkbox" [checked]="seleccionados[i]" ></td>
             
             
     

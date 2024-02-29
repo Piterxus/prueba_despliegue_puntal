@@ -1,38 +1,42 @@
 <div class="tablaPb">
-   <div class="d-flex flex-row-reverse mb-2">
-     <a class="enlaceCreatePB" routerLink="../formulario" 
-     [queryParams]="{ tipo: 'vacio' }">PLAZA BASE</a></div>
-     
-    <table  datatable [dtOptions]="dtOptions" 
-    class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped">
-      <thead>
-        <th [attr.colspan]="8" class="cabeceraTabla">
-            PLAZAS BASE
-        </th>
-        <tr class="cabeceraDatos">
-          <th class="text-center">Fecha entrada</th>
-          <th class="text-center">Embarcacion</th>
-          <th class="text-center">Instalación</th>
-          <th class="text-center">Pantalán</th>
-          <th class="text-center">Amarre</th>
-          <th class="text-center">Autorizaciones</th>
-          <th class="text-center">Titular</th>
-          <th class="text-center">Datos estancia</th>
-        </tr>
-
-      </thead>
-      <tbody>
-        <tr (click)="someClickHandler(i)" *ngFor="let item of datos;let i=index" class=" text-center">
-            <td>{{item.fecha_entrada}}</td>
-            <td>{{item.embarcacion}}</td>
-            <td>{{item.instalacion}}</td>
-            <td>{{item.pantalan}}</td>
-            <td>{{item.amarre}}</td>
-            <td>{{item.autorizaciones}}</td>
-            <td>{{item.titular}}</td>
-            <td>{{item.datos_estancia}}</td>    
-        </tr>
-      </tbody>
-    </table>
+  <div class="d-flex flex-row-reverse mb-2">
+    <a
+      class="enlaceCreatePB"
+      routerLink="../formulario"
+      [queryParams]="{ tipo: 'vacio' }"
+      >PLAZA BASE</a
+    >
   </div>
-  
+
+  <table
+    [dtTrigger]="dtTrigger"
+    datatable
+    [dtOptions]="dtOptions"
+    class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped"
+  >
+    <thead>
+      <th [attr.colspan]="4" class="cabeceraTabla">PLAZAS BASE</th>
+      <tr class="cabeceraDatos">
+        <th class="text-center">Fecha entrada</th>
+        <th class="text-center">Fecha de finalizacion de contrato</th>
+        <th class="text-center">Instalación</th>
+
+        <th class="text-center">Datos de Embarcacion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        (click)="someClickHandler(i)"
+        *ngFor="let item of datos; let i = index"
+        class="text-center"
+      >
+        <td>{{ item.FechaInicio }}</td>
+        <td>{{ item.FechaFinalizacion }}</td>
+
+        <td>{{ item.Instalacion }} - {{ item.Pantalan }}- {{ item.Numero }}</td>
+        
+        <td>{{ item.Matricula }} - {{ item.Titular }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

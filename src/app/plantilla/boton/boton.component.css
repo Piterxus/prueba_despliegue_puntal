@@ -6,7 +6,7 @@
 
 .botonA {
   /* estilo de la caja*/
-  border-radius: 2px;
+  border-radius: 5px;
   border: 1px solid var(--Wedgewood-50, #f5f7fa);
   background: var(--Wedgewood-50, #f5f7fa);
   color: #36536e;
@@ -32,7 +32,7 @@
 .botonB {
     /* estilo de la caja*/
  
-  border-radius: 2px;
+  border-radius: 5px;
   border: 1px solid var(--Wedgewood-700, #36536e);
   background: var(--Wedgewood-700, #36536e);
   background-color: #36536e;

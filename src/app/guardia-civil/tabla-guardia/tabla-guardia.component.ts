@@ -1,5 +1,6 @@
 import { Component,OnInit, Output,EventEmitter } from '@angular/core';
-import { datos } from 'src/resources/datos';
+import { ApiService } from 'src/app/services/api/api.service';
+import { Observable, Subject } from 'rxjs';
 
 
 @Component({
@@ -9,30 +10,49 @@ import { datos } from 'src/resources/datos';
 })
 export class TablaGuardiaComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-  datos = datos.transitos;
+  datos: any = [];
+   totalRegistros:any;
+
   seleccionados: boolean[] = Array(this.datos.length).fill(false);
   selectAll: boolean = false;
-  marcar(index: number)
-  {
-    this.seleccionados[index] = !this.seleccionados[index];
+  seleccionarTodas(): void {
+    this.selectAll = !this.selectAll;
+    this.seleccionados.fill(this.selectAll);
   }
+  
+  marcar(index: number,transit:any): void {
+    this.seleccionados[index] = !this.seleccionados[index];
+    
+    this.apiService.leidoCreate(transit);
 
- seleccionarTodas(): void {
-  this.selectAll = !this.selectAll;
-  this.seleccionados.fill(this.selectAll);
-}
-constructor() { 
+
+    
+    // Verificar si todas las filas están marcadas para actualizar el estado de "Seleccionar Todas"
+    this.selectAll = this.seleccionados.every((isSelected) => isSelected);
+  }
+  
+dtTrigger: Subject<any> = new Subject<any>();
+
+constructor(private apiService:ApiService ) { 
   console.log(this.datos);
 }
 
 ngOnInit(): void {
-  this.dtOptions = {
-   
-    pageLength: 10,
-    processing: true,
-    language: {
-      url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
-    },
+  this.apiService.getGuardiaCivil().subscribe((data: any) => {
+    this.datos = data;
+    console.log('Después de la llamada a la API:', this.datos);
+    this.dtTrigger.next(data); 
+
+
+     });
+     this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 3,
+      processing: true,
+      language: {
+        url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
+      },
+ 
   };
 }
 }

@@ -4,12 +4,9 @@
     </div>
     <div class="card-body">
       <div class="chart-container">
-        <ng-container *ngIf="esBarChart; else lineChart">
+
           <app-chart ></app-chart>
-        </ng-container>
-        <ng-template #lineChart>
-          <app-chart2 ></app-chart2>
-        </ng-template>
+
       </div>
     </div>
   </div>

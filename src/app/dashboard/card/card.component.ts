@@ -10,6 +10,10 @@ export class CardComponent {
   @Input() primera: string = '';
   @Input() segunda: string = '';
   @Input() tercera: string = '';
-  @Input() cuarta: string = '';
-  
+
+  @Input() datosApi: any;
+  @Input() datosApi2: any;
+  @Input() datosApi3: any;
+
+  constructor() {}
 }

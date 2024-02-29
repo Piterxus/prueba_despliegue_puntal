@@ -2,58 +2,41 @@
   <div class="row" >
       
     <div class="col-md-3">
-      <app-card [titulo]="titulo" [primera]="texto1"  [segunda]="comprueba"  [tercera]="prueba"></app-card>
+      <app-card [titulo]="titulo" [primera]="linea1c1"  [datosApi]="datos1" [segunda]="linea2c1"  [datosApi2]="datos2" [tercera]="linea3c1" [datosApi3]="datos3"></app-card>
       
     </div>
     <div class="col-md-3">
-      <app-card [primera]="texto2"></app-card>
+      <app-card [titulo]="titulo2" [primera]="linea1c2"  [datosApi]="datos12" [segunda]="linea2c2"  [datosApi2]="datos22" [tercera]="linea3c2" [datosApi3]="datos32"></app-card>
     </div>
     <div class="col-md-6">
-        <app-cardconchart  [chartType]="'bar'"></app-cardconchart>
+         <app-cardconchart [titulo]="dura" ></app-cardconchart> 
       </div>
   </div>
   
   <div class="row">
    
     <div class="col-md-3">
-      <app-card [primera]="texto3"></app-card>
+      <app-card [titulo]="titulo3" [primera]="linea1c3"  [datosApi]="datos13" [segunda]="linea2c3"  [datosApi2]="datos23" [tercera]="linea3c3" [datosApi3]="datos33"></app-card>
     </div>
     <div class="col-md-3">
-      <app-card [primera]="texto4"></app-card>
+      <app-card [titulo]="titulo4" [primera]="linea1c4"  [datosApi]="datos14" [segunda]="linea2c4"  [datosApi2]="datos24" [tercera]="linea3c4" [datosApi3]="datos34"></app-card>
     </div>
     <div class="col-md-6">
-        <app-cardconchart [chartType]="'bar'"></app-cardconchart>
+       <app-card2 [titulo]="dura2"></app-card2> 
         
       </div>
   </div>
   
-  <div class="row">
-    
-    <div class="col-md-3">
-      <app-card [primera]="texto5"></app-card>
-     
-    </div>
-    <div class="col-md-3">
-      <app-card [primera]="texto6"></app-card>
-     
-    </div>
-    <div class="col-md-6">
-  
-
-    </div>
-    <div class="col-md-3">
-   
-    </div>
-  </div>
+ 
   
   <div class="row">
    
     <div class="col-md-6">
      <!-- <app-cardconchart [titulo]="titulo1" [texto]="texto5"></app-cardconchart>-->
-      <app-cardconchart ></app-cardconchart>
+     <app-cardconchart2 [titulo]="dura3"></app-cardconchart2>
     </div>
     <div class="col-md-6">
-      <app-cardconchart></app-cardconchart>
+     <app-cardconchart3 [titulo]="dura4"></app-cardconchart3>
     </div>
   </div>
 

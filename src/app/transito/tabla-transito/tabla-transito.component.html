@@ -2,33 +2,35 @@
   <div class="d-flex flex-row-reverse mb-2">
     <a class="enlaceCreateTra" routerLink="../formulario"
     [queryParams]="{ tipo: 'vacio' }">TRANSITOS</a></div>
-    <table datatable [dtOptions]="dtOptions"
-    class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped">
+    <table [dtTrigger]="dtTrigger"  datatable [dtOptions]="dtOptions" class="table table-hover table-custom-hover rounded-3 overflow-hidden table-striped">
       <thead>
         <th [attr.colspan]="12" class="cabeceraTabla">
             TRANSITOS
         </th>
         <tr class="cabeceraDatos">
-          <th class="text-center">Fecha entrada</th>
-          <th class="text-center">Fecha salida</th>
-          <th class="text-center">Embarcacion</th>
-          <th class="text-center">Instalación</th>
-          <th class="text-center">Pantalán</th>
-          <th class="text-center">Amarre</th>
-          <th class="text-center">Patrón</th>
           <th class="text-center">Proposito</th>
+          <!-- <th class="text-center">Fecha salida</th> -->
+          <th class="text-center">Guardamuelles_id</th>
+          <th class="text-center">Autorización</th>
+          <th class="text-center">Amarre</th>
+          
+     
         </tr>
       </thead>
       <tbody>
-        <tr (click)="someClickHandler(i)"*ngFor="let item of datos;let i=index" class=" text-center">
-            <td>{{item.fecha_entrada}}</td>
-            <td>{{item.fecha_salida}}</td>
-            <td>{{item.embarcacion}}</td>
-            <td>{{item.instalacion}}</td>
-            <td>{{item.pantalan}}</td>
-            <td>{{item.amarre}}</td>
-            <td>{{item.patron}}</td>
-            <td>{{item.proposito}}</td>    
+        
+        
+        <tr (click)="someClickHandler(i)"*ngFor="let transit of datos; let i = index">
+          <td>{{ transit.Proposito }}</td>
+          <!-- <td>{{ transit.FechaSalida }}</td> -->
+          <td>{{ transit.Guardamuelles_id }}</td>
+          <td>{{ transit.Autorizacion }}</td>
+          <td>{{ transit.Amarre_id }}</td>
+          <!-- <td>{{ transit.nombre }}</td> -->
+          
+         
+          
+         
         </tr>
       </tbody>
     </table>
