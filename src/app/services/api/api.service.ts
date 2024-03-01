@@ -10,7 +10,7 @@ import { Observable, tap } from 'rxjs'; // Importación de módulos necesarios p
 }) // Decorador que permite inyectar dependencias al servicio
 export class ApiService {
 
-  private apiUrl = 'http://alum1.iesfsl.org/api/v1/';
+  private apiUrl = 'https://alum1.iesfsl.org/api/v1/';
   // private apiUrl = 'http://127.0.0.1:8000/api/v1/'; // URL de la API a la que se realizarán las peticiones
   constructor(private http: HttpClient) { } // Inyección de dependencia HttpClient. En este caso, se inyecta el servicio HttpClient
 
