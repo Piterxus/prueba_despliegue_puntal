@@ -99,7 +99,7 @@ export class DashboardComponent implements OnInit{
   //cogemos la el pais que mas embaraciones tiene de la api
     this.apiService.getPaisConMas().subscribe(data => {
       
-      this.datos23 = data;
+      this.datos23 = data.Origen;
       console.log(this.datos23);
     });
 
@@ -107,7 +107,7 @@ export class DashboardComponent implements OnInit{
       //cogemos la el tipo de barco que es mas comun que tiene de la api
     this.apiService.getEmbcomun().subscribe(data => {
       
-      this.datos33 = data;
+      this.datos33 = data.Tipo;
       console.log(this.datos33);
     });
 
