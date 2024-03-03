@@ -1,7 +1,7 @@
 <div class="formularioPlazaBase">
   <div *ngIf="mostrarVacio">
     <div class="formHeader">
-      <h5>ALTA PLAZA BASE</h5>
+      <h5>&nbsp;&nbsp;RESERVA DE PLAZA BASE</h5>
     </div>
 
     <form
@@ -13,7 +13,7 @@
       <div class="formLeft">
         <div class="mb-3 d-flex">
           <label>Feche Entrada:</label>
-          <input type="date" name="FechaInicio" [(ngModel)]="FechaInicio" />
+          <input type="date" name="FechaInicio" [(ngModel)]="FechaInicio" (ngModelChange)="validarFechaFinalizacion()"/>
         </div>
         <div class="mb-3 d-flex">
           <label>Fecha de finalización de contrato:</label>
@@ -21,6 +21,7 @@
             type="date"
             name="FechaFinalizacion"
             [(ngModel)]="FechaFinalizacion"
+            [min] = "minDate"
           />
         </div>
 
@@ -104,7 +105,7 @@
 
   <div *ngIf="mostrarVacio === false">
     <div class="formHeader">
-      <h5>VISTA PLAZA BASE</h5>
+      <h5 >PLAZA BASE {{ plazaBSeleccionada.Plaza}} </h5>
     </div>
     <form
       id="formPlazaBaseModificar"
@@ -116,7 +117,8 @@
         <div class="mb-3 d-flex">
           <label for="FechaInicio" class="form-label">Fecha Inicio:</label>
           <input
-            name="FechaInicio"
+            name="FechaInicioEdicion"
+            id="FechaInicio"
             type="date"
             class="form-control mt-4"
             placeholder="Nombre"
@@ -135,6 +137,7 @@
             class="form-control mt-4"
             placeholder="FechaFinalizacion"
             [(ngModel)]="plazaBSeleccionada.FechaFinalizacion"
+            [min]="minDateActualizada"
           />
           <!-- Input oculto que muestra el valor siempre -->
           <input
@@ -146,7 +149,7 @@
           />
        
         </div>
-       <b> <span *ngIf="editarFechaFinalizacion" class="text-muted">Fecha finalización: {{ plazaBSeleccionada.FechaFinalizacion | date:'yyyy-MM-dd' }}</span></b>
+       <b> <span *ngIf="editarFechaFinalizacion" class="text-muted">Fecha finalización actual: {{ plazaBSeleccionada.FechaFinalizacion | date:'yyyy-MM-dd' }}</span></b>
         <div class="mb-3 d-flex">
           <label for="Instalacion" class="form-label">Instalación:</label>
           <input
@@ -223,7 +226,7 @@
             [ngClass]="{ btn: true, btnVista: modoVista, btnAdd: !modoVista }"
             (click)="modoVista ? activarModoEdicion() : actualizaPB()"
           >
-            {{ modoVista ? "MODIFICAR" : "ACTUALIZAR" }}
+            {{ modoVista ? "EDITAR" : "ACTUALIZAR" }}
           </button>
         </div>
       </div>

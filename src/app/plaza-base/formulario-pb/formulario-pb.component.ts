@@ -22,7 +22,7 @@ export class FormularioPbComponent implements OnInit {
   editarFechaFinalizacion: boolean = false;
 
 
-  plazaBSeleccionada: any = { datos_estancia: '' };
+  plazaBSeleccionada: any = {    };
   idLocalStorage: any;
   data: any;
   formulario!: FormGroup;
@@ -39,6 +39,8 @@ export class FormularioPbComponent implements OnInit {
   FechaInicio: Date;
   FechaFinalizacion: Date;
   titular: string = '';
+  minDate: string | null = null;
+  minDateActualizada: string | null = null;
 
   constructor(
     private sharedDataService: SharedDataService,
@@ -52,7 +54,7 @@ export class FormularioPbComponent implements OnInit {
     this.FechaInicio = new Date();
     this.idLocalStorage = localStorage.getItem('id');
     this.FechaFinalizacion = new Date();
-    this.FechaFinalizacion.setMonth(this.FechaInicio.getMonth() + 6);
+    // this.FechaFinalizacion.setMonth(this.FechaInicio.getMonth() + 6);
   }
   onChangeFechaInicio(): void {
 
@@ -94,6 +96,22 @@ export class FormularioPbComponent implements OnInit {
     }
   }
   validarFechaFinalizacion() {
+    if (this.FechaInicio) {
+      const fechaInicio = new Date(this.FechaInicio);
+      fechaInicio.setMonth(fechaInicio.getMonth() + 6); // Añadir 6 meses a la fecha de inicio
+      this.minDate = fechaInicio.toISOString().split('T')[0]; // Convertir la fecha a un formato de cadena compatible con el atributo 'min'
+    } else {
+      this.minDate = null;
+    }
+    
+    if (this.plazaBSeleccionada.FechaInicio) {
+      const fechaInicio = new Date(this.plazaBSeleccionada.FechaInicio);
+      fechaInicio.setMonth(fechaInicio.getMonth() + 6); // Añadir 6 meses a la fecha de inicio
+      this.minDateActualizada = fechaInicio.toISOString().split('T')[0]; // Convertir la fecha a un formato de cadena compatible con el atributo 'min'
+    }else{
+      this.minDateActualizada = null;
+    }
+
     
   }
   guardarPlazaBase() {
@@ -164,7 +182,7 @@ export class FormularioPbComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.validarFechaFinalizacion();
     this.apiService.getInstalaciones().subscribe(instalaciones => {
       this.instalaciones = instalaciones;
     });
@@ -184,13 +202,15 @@ export class FormularioPbComponent implements OnInit {
     console.log('Intentando obtener datos del servicio...');
 
     this.sharedDataService.getData('plazaBSeleccionada').subscribe((data) => {
-      console.log('Datos obtenidos del servicio:', data);
+ 
       if (data) {
         if (!this.mostrarVacio) {
           this.plazaBSeleccionada = data;
+          this.validarFechaFinalizacion();
           console.log(
             'Información de la embarcación seleccionada:',
-            this.plazaBSeleccionada.titular
+            this.plazaBSeleccionada.Titular,
+            this.plazaBSeleccionada.FechaInicio,
           );
         }
       } else {
@@ -216,7 +236,7 @@ export class FormularioPbComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result.causa) {
+      if (result) {
         this.apiService.putOcupadoDisponible(this.plazaBSeleccionada.Plaza)
           .pipe(
             catchError(error => {
@@ -235,7 +255,7 @@ export class FormularioPbComponent implements OnInit {
               console.error('Error en la solicitud:', error);
             }
           );
-        console.log('Eliminación confirmada. Causa de baja:', result.causa);
+       
       } else {
 
         console.log('Eliminación cancelada.');

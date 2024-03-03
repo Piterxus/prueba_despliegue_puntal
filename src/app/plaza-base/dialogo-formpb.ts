@@ -3,5 +3,5 @@ export interface DialogoFormpb {
     instalacion: string;
     titular:string;
     pantalan:string;
-    causa: string;
+   
 }
