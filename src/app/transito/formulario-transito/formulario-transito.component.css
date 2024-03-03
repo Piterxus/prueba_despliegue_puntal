@@ -1,62 +1,25 @@
 .formularioTransitos {
-    padding: 50px;
-    
-}
-
-.formularioTransitos {
-    width: 100%; /* Ocupa todo el ancho de la página */
-    height: 98vh; /* Ocupa toda la altura de la ventana del navegador */
-    display: flex; /* Usa el modelo de caja flexible para ajustar el diseño */
-    flex-direction: column; /* Coloca los elementos uno encima del otro */
+    padding: 150px;
+  
+    justify-content: space-between;
   }
   
-  /* Estilos para los elementos hijos, como el formulario */
-  .formularioTransitos form {
-    flex: 1; /* El formulario ocupa todo el espacio disponible en la columna */
-  }
-
-
-  .btnDelete ,.btnCancelar {
-    position: absolute;
-    right: 220px;
-    bottom:50px; /* Ajusta la distancia desde la parte inferior según sea necesario */
-    font-size: 16px;
-}
-.btnAdd ,.btnVista {
-    position: absolute;
-    right: 100px;
-    bottom:50px; /* Ajusta la distancia desde la parte inferior según sea necesario */
-    font-size: 16px;
-}
-
-form {
-    
-    background-color: #FFFFFF;
-    padding: 15px;
-}
-.tripulante
-{
-    position: relative;
-    left:px;
-}
-
-form {
-    
-    background-color: #FFFFFF;
+  form {
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 0px 0px 5px 5px;
     box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
-}
-.autorizaciones
-{
-    margin-top: 20px;
-    margin-right: 200px;
-}
-.formLeft {
-    margin-right: 250px;
-}
-
-input {
+  }
+  
+  .formLeft {
+    margin-right: 50px;
+    flex: 1;
+  }
+  .formRight {
+    flex: 1;
+  }
+  
+  input {
     width: 100%;
     height: 30px;
     border-radius: 5px;
@@ -64,76 +27,106 @@ input {
     padding: 5px;
     margin-bottom: 10px;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     color: #555;
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-position: right;
     background-size: 30px;
-
-
-}
-input[name='proposito'] {
-    background-image: url(/assets/img/transitos/proposito.svg);
-
-}
-
-
-
-
-
-input[name='patron'] {
-    
-    background-image: url(/assets/img/transitos/patron.svg);
-
-}
-
-
-label {
+  }
+  
+  input[name="nombre"] {
+    background-image: url(/assets/img/embarcaciones/formIcon_user.svg);
+  }
+  
+  input[name="matricula"] {
+    background-image: url(/assets/img/embarcaciones/formIcon_mat.svg);
+  }
+  
+  input[name="modelo"] {
+    background-image: url(/assets/img/embarcaciones/formIcon_modelo.svg);
+  }
+  
+  input[name="origen"] {
+    background-image: url(/assets/img/embarcaciones/formIcon_band.svg);
+  }
+  
+  input[name="titular"] {
+    background-image: url(/assets/img/embarcaciones/formIcon_tit.svg);
+  }
+  
+  input[name="registro"] {
+    background-image: url(/assets/img/embarcaciones/formIcon_reg.svg);
+  }
+  
+  input[name="eslora"],
+  input[name="manga"] {
+    background-image: url(/assets/img/embarcaciones/formIcon_es.svg);
+  }
+  
+  input[name="tipo"] {
+    background-image: url(/assets/img/embarcaciones/formIcon_tip.svg);
+  }
+  
+  input[name="imgEmb"] {
+    background-image: url(/assets/img/embarcaciones/formIcon_img.svg);
+  }
+  
+  label {
     width: 200px;
     font-weight: bold;
-}
-
-.formHeader {
+  }
+  
+  .formHeader {
     padding: 6px;
     font-weight: bold;
-    font-family: 'Questrial', sans-serif;
+    font-family: "Questrial", sans-serif;
     color: #ffffff;
     background-color: var(--wedgewood950);
     border-radius: 5px 5px 0px 0px;
-}
-
-.btnCancelar {
+  }
+  
+  .btnCancelar {
     text-decoration: none;
     background-color: var(--goldenTainoi300);
     color: var(--goldenTainoi900);
-}
-
-.btnAdd {
+  }
+  
+  .btnAdd {
     background-color: var(--titanWhite900);
     color: var(--titanWhite50);
     margin-left: 10px;
-}
-
-.btnVista {
+  }
+  .botones-container {
+position: relative;
+top: 200px;  }
+  
+  .btnVista {
     background-color: var(--regentStBlue300);
     color: var(--regentStBlue950);
     margin-left: 10px;
-}
-
-.btnDelete {
-    background-color: var(--gold500);
-    color: var(--gold950);
-    margin-left: 10px;
-}
-
-.btnBack {
+  }
+  
+  
+  .btnBack {
     background-color: var(--wedgewood500);
     color: var(--wedgewood50);
     border-color: var(--wedgewood700);
-}
-
-.imgEmb {
+  }
+  .btnDelete {
+    background-color: var(--gold500);
+    color: var(--gold950);
+    margin-left: 10px;
+  }
+  
+  .btnBack {
+    background-color: var(--wedgewood500);
+    color: var(--wedgewood50);
+    border-color: var(--wedgewood700);
+  }
+  
+  .imgEmb {
     width: 200px;
     height: 200px;
-}
+  }
+  

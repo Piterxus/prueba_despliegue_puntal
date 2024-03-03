@@ -6,14 +6,15 @@ border: 1px solid var(--Wedgewood-400, #769CBA);
 background: var(--Wedgewood-400, #769CBA);
 width: 100%;
 height: 40%;
-margin-top: 15px;
+margin-top: 25px;
 margin-bottom: 15px;
+margin-left: 50px;
+
 }
 .agregar-tripulante-link {
-    position: absolute;
-    right: 0px; 
-    top: -10px;/* Ajusta la posición horizontal según necesites */
-    z-index: 999; /* Asegura que esté sobre la tabla */
+    position: relative;
+    right: -460px; 
+    top: 20px;/* Ajusta la posición horizontal según necesites */
   }
   
 .cabeceraDatos>th
