@@ -97,6 +97,8 @@ export class NotificacionesComponent implements OnInit {
     }
   }
   // Método para destruir el componente
+
+
   ngOnDestroy(): void {
     // Desuscribirse de dtTrigger para evitar problemas de memoria
     this.dtTrigger.unsubscribe();

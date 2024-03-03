@@ -13,7 +13,7 @@
         <th class="text-center">Usuario</th>
         <th class="text-center">Título</th>
         <th class="text-center">Descripción</th>
-        <th class="text-center">Foto</th>
+      
      
       </tr>
     </thead>
@@ -27,7 +27,7 @@
         <td class="p-4">{{ item.Guardamuelle_nombre }}</td>
         <td class="p-4">{{ item.Titulo }}</td>
         <td class="p-4">{{ item.Descripcion }}</td>
-        <td class="p-4">{{ item.Imagen }}</td>
+       
         
       </tr>
     </tbody>
@@ -37,12 +37,18 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">{{tituloModal}}</h4>
-           <button type="button" class="close" aria-label="Close" (click)="closeModal()">
-          <span aria-hidden="true">&times;</span>
+           <button type="btn" class="close" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">X</span>
         </button>
         </div>
 
-        <div class="modal-body">{{cuerpoModal}}</div>
+        <div class="modal-body d-flex justify-content-center align-items-center">{{cuerpoModal}}
+           <img
+            [src]="
+              '/assets/img/embarcaciones/image-outline.svg'"
+            alt=""
+             class="imgEmb"
+          /></div>
         <img [src]="'assets/'+imagenModal" alt="">
         
 

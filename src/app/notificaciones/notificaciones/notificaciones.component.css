@@ -53,7 +53,7 @@ td {
 
 .modal-header {
     background-color: var(--wedgewood600);
-    height: 30px;
+    height: 50%;
     color: var(--wedgewood50);
     font-family: 'Questrial', sans-serif;
 
@@ -68,4 +68,10 @@ td {
 
 .modal-footer {
     border: none;
+}
+
+.close{
+    /* background-color: var(--wedgewood600);
+    color: var(--wedgewood50); */
+    border-radius: 5px;
 }
