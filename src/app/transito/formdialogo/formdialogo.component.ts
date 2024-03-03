@@ -19,11 +19,11 @@ export class FormdialogoComponent {
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(false); // Cierra el diálogo sin emitir ningún valor
   }
 
   onSubmit(): void {
-    this.dialogRef.close(this.formData);
+    this.dialogRef.close(true);
   }
 }
 

@@ -26,7 +26,7 @@ export class TablaTransitoComponent implements OnInit {
 
     
   ){}
-
+//mete en el set data en funcion de la posicion el transito
   someClickHandler(index: number): void {
     const rowData = this.datos[index];
     this.sharedDataService.setData('transitoSeleccionada', rowData);
@@ -35,7 +35,7 @@ export class TablaTransitoComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.apiService.getAll('transito').subscribe((data: any) => {
+    this.apiService.getTablaTransito().subscribe((data: any) => {
       this.datos = data;
 
       console.log('Después de la llamada a la API:', this.datos);

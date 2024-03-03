@@ -1,7 +1,7 @@
 <ng-container *ngIf="click === true">
   <img
     (click)="anyadirTripulante()"
-    class="img"
+    class="agregar-tripulante-link"
     src="/assets/img/transitos/Vector.svg"
     alt=""
   />
@@ -11,9 +11,9 @@
 >
   <thead class="cabeceraDatos text-center">
     <tr class="cabeceraDatos text-center">
-      <th>NOMBRE COMPLETO</th>
+      <th>NOMBRE </th>
       <th>SEXO</th>
-      <th>N DOCUMENTO</th>
+      <th>DOCUMENTO</th>
       <th>NACIONALIDAD</th>
     </tr>
 
@@ -23,9 +23,9 @@
     <!-- muestra los datos que hay solo en vista -->
     <ng-container *ngIf="mostrarDatos && !crearTripulante">
       <tr *ngFor="let item of datos; let i = index" class="text-center">
+        <td>{{ item.NumeroDeDocumento }}</td>
         <td>{{ item.Nombre }}</td>
         <td>{{ item.Sexo }}</td>
-        <td>{{ item.NumeroDeDocumento }}</td>
         <td>{{ item.Nacionalidad }}</td>
       </tr>
     </ng-container>
@@ -37,52 +37,50 @@
         <td></td>
         <td></td>
       </tr>
+    
     </ng-container>
     <!-- muestra inputs cuando se crea un nuevo tripulante -->
-    <ng-container *ngIf="crearTripulante && !mostrarDatos" >
-      <ng-container  *ngFor="let index of getInputsArray()" >
-      <tr style="width: 200px; height: 50px">
-        <td>
-          <input
-            type="text"
-            name="nombre"
-            [(ngModel)]="TripulanteSeleccionada.nombre"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            name="sexo"
-            [(ngModel)]="TripulanteSeleccionada.sexo"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            name="documento"
-            [(ngModel)]="TripulanteSeleccionada.documento"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            name="nacionalidad"
-            [(ngModel)]="TripulanteSeleccionada.nacionalidad"
-          />
-        </td>
-      </tr>
+    
+    <ng-container *ngIf="crearTripulante && !mostrarDatos">
+      <ng-container *ngFor="let index of [0, 1, 2, 3]"> <!-- Iterar exactamente 4 veces -->
+        <tr style="width: 200px; height: 50px">
+          <td>
+            <input type="text" [(ngModel)]="tripulantes[index].NumeroDeDocumento" />
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="tripulantes[index].Nombre" />
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="tripulantes[index].Sexo"  />
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="tripulantes[index].Nacionalidad"  />
+          </td>
+        </tr>
+      </ng-container>
+ 
     </ng-container>
-    </ng-container>
+    
     <!-- muestra datos y permite modificacion  -->
     <ng-container *ngIf="crearTripulante && mostrarDatos">
       
-      <tr *ngFor="let item of datos; let i = index" class="text-center">
+      <ng-container *ngFor="let dato of datos; let i = index">
+        <tr style="width: 200px; height: 50px">
+          <td>
+            <input type="text" [(ngModel)]="tripulantes[i].NumeroDeDocumento" />
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="tripulantes[i].Nombre" />
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="tripulantes[i].Sexo"  />
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="tripulantes[i].Nacionalidad"  />
+          </td>
+        </tr>
+      </ng-container>
       
-        <td><input type="text" value="{{ item.Nombre }}"></td> 
-        <td> <input type="text" value="{{ item.Sexo }}" ></td> 
-        <td> <input type="text" value="{{ item.NumeroDeDocumento }}" ></td> 
-        <td><input type="text" value="{{ item.Nacionalidad }}" ></td>
-      </tr>
     </ng-container>
   </tbody>
 </table>

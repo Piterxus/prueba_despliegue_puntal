@@ -7,27 +7,14 @@
       </mat-form-field><br>
   
       <mat-form-field>
-        <label for="patron">Patrón</label>
-        <input matInput id="patron" [(ngModel)]="formData.patron" name="patron" readonly>
+        <label for="amarre">Amarre</label>
+        <input matInput id="amarre" [(ngModel)]="formData.amarre" name="Amarre" readonly>
       </mat-form-field><br>
   
-      <mat-form-field>
-        <label for="instalacion">Instalación</label>
-        <input matInput id="instalacion" [(ngModel)]="formData.instalacion" name="instalacion" readonly>
-      </mat-form-field><br>
-  
-      <mat-form-field>
-        <label for="pantalan">Pantalán</label>
-        <input matInput id="pantalan" [(ngModel)]="formData.pantalan" name="pantalan" readonly>
-      </mat-form-field><br>
-  
-      <mat-form-field>
-        <label for="causa">Causa</label>
-        <textarea matInput id="causa" placeholder="Causa" [(ngModel)]="formData.causa" name="causa" required></textarea>
-      </mat-form-field>
+     
 
     <div mat-dialog-actions>
-      <button class="btnDelete btn" mat-button (click)="onNoClick()">Cancelar</button>
+      <button class="btnDelete btn" mat-button type="button" (click)="onNoClick()">Cancelar</button>
       <button class="btnAdd btn" mat-button type="submit">Eliminar</button>
     </div>
   </form>

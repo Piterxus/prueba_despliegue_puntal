@@ -147,18 +147,17 @@ const routes: Routes = [
     path: 'movil',
     canActivate: [roleGuard],
     data: { role: '3' },
-    // canMatch: [() => isRole('3')],
     component: PlantillaGuardamuellesComponent, 
     children: [
       { path: '', component: ListaCardsComponent },
-      { path: 'card-incidencia', component: CardIncidenciaComponent },
+    { path: 'card-incidencia', component: CardIncidenciaComponent },
       { path: 'card-confirmacion-transito', component: CardConfirmacionTransitoComponent },
     ]
   },
   {
     path: '**',
-    component: ErrorHandlerComponent
-    // redirectTo: '/login' Por eso redirigia al login. Doble asterisco es para cualquier ruta que no exista.
+    component: ErrorHandlerComponent,
+   //  redirectTo: '/login' //Por eso redirigia al login. Doble asterisco es para cualquier ruta que no exista.
   }
 ];
 @NgModule({

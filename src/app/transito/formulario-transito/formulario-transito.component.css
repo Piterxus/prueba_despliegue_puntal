@@ -3,6 +3,32 @@
     
 }
 
+.formularioTransitos {
+    width: 100%; /* Ocupa todo el ancho de la página */
+    height: 98vh; /* Ocupa toda la altura de la ventana del navegador */
+    display: flex; /* Usa el modelo de caja flexible para ajustar el diseño */
+    flex-direction: column; /* Coloca los elementos uno encima del otro */
+  }
+  
+  /* Estilos para los elementos hijos, como el formulario */
+  .formularioTransitos form {
+    flex: 1; /* El formulario ocupa todo el espacio disponible en la columna */
+  }
+
+
+  .btnDelete ,.btnCancelar {
+    position: absolute;
+    right: 220px;
+    bottom:50px; /* Ajusta la distancia desde la parte inferior según sea necesario */
+    font-size: 16px;
+}
+.btnAdd ,.btnVista {
+    position: absolute;
+    right: 100px;
+    bottom:50px; /* Ajusta la distancia desde la parte inferior según sea necesario */
+    font-size: 16px;
+}
+
 form {
     
     background-color: #FFFFFF;
@@ -27,7 +53,7 @@ form {
     margin-right: 200px;
 }
 .formLeft {
-    margin-right: 100px;
+    margin-right: 250px;
 }
 
 input {
