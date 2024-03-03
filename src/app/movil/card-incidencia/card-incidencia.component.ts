@@ -51,35 +51,63 @@ export class CardIncidenciaComponent {
     }
   }
   
-  guardarIncidencia() {
-    // alert(this.formulario.value.Imagen)
+  // guardarIncidencia() {
+  //   // alert(this.formulario.value.Imagen)
   
-    // Asigna los valores del formulario a this.incidencia
-    // this.incidencia.Titulo = this.formulario.value.Titulo;
-    // this.incidencia.Descripcion = this.formulario.value.Descripcion;
-    //this.incidencia.Guardamuelle_id = localStorage.getItem("id");
+  //   // Asigna los valores del formulario a this.incidencia
+  //   // this.incidencia.Titulo = this.formulario.value.Titulo;
+  //   // this.incidencia.Descripcion = this.formulario.value.Descripcion;
+  //   //this.incidencia.Guardamuelle_id = localStorage.getItem("id");
 
     
-    //console.log("this.incidencia");
+  //   //console.log("this.incidencia");
   
-    // Crear un nuevo objeto FormData para enviar los datos al servidor
+  //   // Crear un nuevo objeto FormData para enviar los datos al servidor
+  //   const formData = new FormData();
+  
+  //   // Agregar título y descripción al objeto FormData
+  //   formData.append('Titulo', this.formulario.value.Titulo);
+  //   formData.append('Descripcion', this.formulario.value.Descripcion);
+  //   formData.append('Guardamuelle_id', this.formulario.value.Guardamuelle_id);
+  //   // Agregar la imagen seleccionada al objeto FormData
+  //   // const imagenInput = document.getElementById('imagenIncidencia') as HTMLInputElement;
+  //   // const imagenInput = document.getElementById('imgInci') as HTMLInputElement;
+  //   // if (imagenInput && imagenInput.files && imagenInput.files.length > 0) {
+  //   //   const file = imagenInput.files[0];
+  //   //   this.formulario.value.Imagen = file;
+  //   //   formData.append('Imagen', file);
+  //   // }
+  
+  //   // Envía los datos al servidor utilizando el servicio API
+  //   this.apiService.add('incidencia', this.formulario.value)
+  //     .pipe(
+  //       catchError(error => {
+  //         console.error('Error en la solicitud:', error);
+  //         console.log('Mensaje de error:', error.error);
+  //         throw error;
+  //       })
+  //     )
+  //     .subscribe(
+  //       response => {
+  //         window.location.reload();
+  //         console.log('Respuesta del servicio en el componente:', response);
+  //       }
+  //     );
+  // }
+
+  guardarIncidencia() {
     const formData = new FormData();
-  
-    // Agregar título y descripción al objeto FormData
     formData.append('Titulo', this.formulario.value.Titulo);
     formData.append('Descripcion', this.formulario.value.Descripcion);
     formData.append('Guardamuelle_id', this.formulario.value.Guardamuelle_id);
     // Agregar la imagen seleccionada al objeto FormData
-    // const imagenInput = document.getElementById('imagenIncidencia') as HTMLInputElement;
-    // const imagenInput = document.getElementById('imgInci') as HTMLInputElement;
-    // if (imagenInput && imagenInput.files && imagenInput.files.length > 0) {
-    //   const file = imagenInput.files[0];
-    //   this.formulario.value.Imagen = file;
-    //   formData.append('Imagen', file);
-    // }
+    const imagenInput = document.getElementById('imgInci') as HTMLInputElement;
+    if (imagenInput && imagenInput.files && imagenInput.files.length > 0) {
+        const file = imagenInput.files[0];
+        formData.append('Imagen', file);
+    }
   
-    // Envía los datos al servidor utilizando el servicio API
-    this.apiService.add('incidencia', this.formulario.value)
+    this.apiService.addPhoto('incidencia', formData)
       .pipe(
         catchError(error => {
           console.error('Error en la solicitud:', error);
@@ -93,6 +121,5 @@ export class CardIncidenciaComponent {
           console.log('Respuesta del servicio en el componente:', response);
         }
       );
-  }
-  
+}
 }

@@ -8,14 +8,15 @@
       <div class="container-fluid">
         <form [formGroup]="formulario" id="formEmbarcacion" class="row justify-content-center" (ngSubmit)="guardarImagen()" enctype="multipart/form-data">
           <div class="col-12 text-center ">
-            <input formControlName="Imagen" type="file" class="form-control mt-4" (change)="onFileSelected($event)" />
+            <!-- <input formControlName="Imagen" id="imgEmb" type="file" class="form-control mt-4" (change)="onFileSelected($event)" /> --> <br>
+            
           </div>
           <div class="d-flex justify-content-center">
-            <img class="imgEmb" [src]="imagenSeleccionada || transito.Imagen || '/assets/img/embarcaciones/image-outline.svg'" alt="" />
+            <img class="imgEmb" [src]="imagenSeleccionada  || '/assets/img/barco.jpg'" alt="" />
 
           </div>
           <div class="col-12 text-center mt-2">
-            <button type="submit" class="btn btnAdd">AÑADIR</button>
+            <!-- <button type="submit" class="btn btnAdd">AÑADIR</button> --> <br>
           </div>
         </form>
   
@@ -32,7 +33,7 @@
         </div>
   
         <div class="row justify-content-center">
-          <div class="col-12 mt-4">
+          <div class="col-12 mt-4 mb-1">
             <b>Ubicación:</b> {{ transito.ubicacion }}
             <br>
             <b>Matrícula:</b> {{ transito.Matricula }}
@@ -46,21 +47,15 @@
         </div>
   
         <div class="row justify-content-center">
-          <div class="col-12 mt-3 ml-4">
-            <button type="button" class="botonLlegada" (click)="confirmarLlegada()">
-              <b>CONFIRMAR LLEGADA</b>
+          <div class="col-12 mt-5 ml-4">
+            <button type="button" class="botonLlegada"
+                    [style.backgroundColor]="transito.Estatus === 'salida' ? '#FFD700' : '#92CACE'"
+                    (click)="transito.Estatus === 'salida' ? confirmarSalida() : confirmarLlegada()">
+                <b>{{ transito.Estatus === 'salida' ? 'CONFIRMAR SALIDA' : 'CONFIRMAR LLEGADA' }}</b>
             </button>
-          </div>
+        </div>
         </div>
   
       </div>
     </div>
   </div>
-  
-
-
-
-
-
-
-

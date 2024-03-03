@@ -33,6 +33,7 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 flex-shrink: 0;
+margin-left: 150px;
 margin-right: 7px;
 }
 
@@ -59,8 +60,9 @@ margin-right: 7px;
     align-items: center;
     flex-shrink: 0;
     border-radius: 21.363px;
-    border: 1.424px solid var(--Regent-St-Blue-300, #ADD8E6);
-    background: var(--Blue-Chill-300, #92CACE);
+    margin-left: 20px;
+    /* border: 1.424px solid var(--Regent-St-Blue-300, #ADD8E6);
+    background: var(--Blue-Chill-300, #92CACE); */
 
 }
 
@@ -83,5 +85,6 @@ margin-right: 7px;
 .imgEmb {
     height: 20vh;
     width: 20vh;
+    border-radius: 21.363px;
 
 }

@@ -10,17 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
-const routes: Routes = [
-  {
-    path: '',
-    component: ListaCardsComponent,
-    children: [
-      { path: 'card-incidencia', component: CardIncidenciaComponent },
-      { path: 'card-confirmacion-transito', component: CardConfirmacionTransitoComponent },
-      { path: '', redirectTo: 'card-incidencia', pathMatch: 'full' },
-    ],
-  },
-];
 @NgModule({
   declarations: [
     PlantillaGuardamuellesComponent,
@@ -30,7 +19,7 @@ const routes: Routes = [
     ListaCardsComponent
   ],
   imports: [
-    CommonModule, RouterModule, RouterModule.forChild(routes), FormsModule, ReactiveFormsModule],
+    CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   exports:[PlantillaGuardamuellesComponent
 
   ]
