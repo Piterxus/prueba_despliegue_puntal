@@ -1,4 +1,6 @@
-<div class="formularioEmbarcaciones">
+<div
+  class="formularioEmbarcaciones container-fluid d-flex justify-content-center align-items-center"
+>
   <div *ngIf="mostrarVacio">
     <div class="formHeader">
       <h5>ALTA EMBARCACIÓN</h5>
@@ -56,10 +58,9 @@
             placeholder="Titular"
           />
         </div>
-  
       </div>
       <div class="formRight">
-              <div class="mb-3 d-flex">
+        <div class="mb-3 d-flex">
           <label for="eslora" class="form-label">Eslora:</label>
           <input
             name="Eslora"
@@ -133,7 +134,7 @@
   </div>
   <div *ngIf="mostrarVacio === false">
     <div class="formHeader">
-      <h5>VISTA EMBARCACIÓN</h5>
+      <h5>&nbsp; &nbsp; {{ embarcacionSeleccionada.Nombre }}</h5>
     </div>
     <form
       id="formEmbarcacionModificar"
@@ -208,7 +209,10 @@
             [readOnly]="!modoEdicion"
           />
         </div>
-        <div class="mb-3 d-flex">
+
+      </div>
+      <div class="formRight">
+                <div class="mb-3 d-flex">
           <label for="manga" class="form-label">Manga:</label>
           <input
             name="Manga"
@@ -230,8 +234,6 @@
             [readOnly]="!modoEdicion"
           />
         </div>
-      </div>
-      <div class="formRight">
         <div class="mb-3 d-flex">
           <label for="tipo" class="form-label">Tipo:</label>
           <select
@@ -267,9 +269,12 @@
         </div> -->
         <div class="d-flex justify-content-center">
           <img
-            [src]="'http://127.0.0.1:8000' + embarcacionSeleccionada.Imagen"
+            [src]="
+              'http://127.0.0.1:8000' + embarcacionSeleccionada.Imagen ||
+              '/assets/img/embarcaciones/image-outline.svg'
+            "
             alt=""
-             class="imgEmb"
+            class="imgEmb"
           />
         </div>
 
@@ -289,7 +294,7 @@
             [ngClass]="{ btn: true, btnVista: modoVista, btnAdd: !modoVista }"
             (click)="modoVista ? activarModoEdicion() : actualizarEmbarcacion()"
           >
-            {{ modoVista ? "MODIFICAR" : "ACTUALIZAR" }}
+            {{ modoVista ? "EDITAR" : "ACTUALIZAR" }}
           </button>
         </div>
       </div>
