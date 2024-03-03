@@ -17,7 +17,7 @@ export class TablaGuardiaComponent implements OnInit {
   selectAll: boolean = false;
   seleccionarTodas(): void {
     this.selectAll = !this.selectAll;
-    this.seleccionados.fill(this.selectAll);
+    this.seleccionados = this.datos.map(() => this.selectAll);
   }
   
   marcar(index: number,transit:any): void {
@@ -38,7 +38,7 @@ constructor(private apiService:ApiService ) {
 }
 
 ngOnInit(): void {
-  this.apiService.getGuardiaCivil().subscribe((data: any) => {
+  this.apiService.getTablaTransitoGuardia().subscribe((data: any) => {
     this.datos = data;
     console.log('Después de la llamada a la API:', this.datos);
     this.dtTrigger.next(data); 

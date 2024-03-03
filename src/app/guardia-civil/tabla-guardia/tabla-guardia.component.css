@@ -3,12 +3,12 @@
 
 }
   
-.fondo-amarillo {
-    background-color: yellow !important;
+.fondo-entrada {
+    background-color: rgb(173, 216, 230) !important;
 }
 
-.fondo-azul {
-    background-color: rgb(255, 0, 0) !important;
+.fondo-salida {
+    background-color: rgb(255, 215, 0) !important;
 }
 th{
     

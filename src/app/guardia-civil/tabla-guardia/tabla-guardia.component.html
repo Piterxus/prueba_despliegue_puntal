@@ -21,16 +21,16 @@
         </tr>
 </thead>
     <tbody>
-        
+        <!-- aqui se rellena la tabla y se crean las clases para aplicarle el translucido y poner los checkbox -->
         <tr  *ngFor="let transit of datos;let i=index" class=" text-center" [ngClass]="{'color-translucido': seleccionados[i]}" class="estados" >
-            <td>{{ transit.ubicacion }}</td>
+            <td>{{ transit.Ubicacion }}</td>
             <td>{{ transit.FechaEntrada }}</td>
             <td>{{ transit.FechaSalida }}</td>
             <td>{{ transit.Matricula }}</td>
             <td>{{ transit.Titular }}</td>
             <td>{{ transit.Tipo }}</td>
             <td>{{ transit.Origen }}</td>
-            <td [ngClass]="{'fondo-amarillo': transit.Estatus === 'Salida', 'fondo-azul': transit.Estatus === 'Entrada'}" class="estatus" >{{ transit.Estatus }}</td>
+            <td [ngClass]="{'fondo-salida': transit.Estatus === 'Salida', 'fondo-entrada': transit.Estatus === 'Entrada'}" class="estatus" >{{ transit.Estatus }}</td>
             <td><input (click)="marcar(i,transit)" class="eliminar" type="checkbox" [checked]="seleccionados[i]" ></td>
             
             
