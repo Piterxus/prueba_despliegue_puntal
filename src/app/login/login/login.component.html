@@ -1,12 +1,15 @@
-<div class="container-fluid">
-  <div class="row h-75 w-75 postal position-absolute top-50 start-50 translate-middle shadow p-4">
-    <div class="col-md-6 h-100 d-flex flex-column justify-content-center background-left position-relative">
+<div class="  container-fluid">
+  <div class=" contenedor-login row  w-75 postal position-absolute top-50 start-50 translate-middle shadow p-4">
+    <!-- Decoración a la izquierda -->
+    <div class=" col-md-6  h-100 d-flex flex-column justify-content-center background-left position-relative ">
       <div class="welcomeLogin w-100">
-        <h2 class="w-100">BIENVENIDO</h2>
+        <h2 class="w-100">BIENVENDIDA.</h2>
       </div>
 
-      <img src="/assets/img/Group.svg" alt="Logo Portos de  Galicia"
-        class="img-fluid position-absolute bottom-0 start-0 mb-4 ms-3" />
+
+      <!-- Imagen abajo a la izquierda -->
+      <img src="/assets/img/Group.svg" alt="Logo Portos de Galicia" class="img-fluid position-absolute bottom-0 start-0 mb-4 ms-3 desktop-image">
+    <img src="/assets/img/Group_Movil.svg" alt="Logo Portos de Galicia" class="img-fluid position-absolute  start-50 translate-middle mb-4 mt-4 mobile-image">
     </div>
 
     <br><br>
@@ -28,16 +31,26 @@
           </div>
 
           <div class="mb-5">
-            <input type="email" class="form-control" formControlName="email" placeholder="EMAIL" />
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              placeholder="EMAIL"
+            />
           </div>
 
           <div class="mb-5">
-            <input type="password" class="form-control" formControlName="password" placeholder="CONTRASEÑA" />
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              placeholder="CONTRASEÑA"
+            />
             <a href="#"> </a>
           </div>
 
-
-          <!-- <div class="mb-5 d-flex justify-content-between align-items-center">
+         
+          <div class="mb-5 d-flex justify-content-between align-items-center">
            
             <div class="form-check">
               <input
@@ -52,7 +65,7 @@
             </div>
 
             <a href="#">¿Olvidaste tu contraseña?</a>
-          </div> -->
+          </div>
 
           <button type="submit" class="mt-4 float-end">ENVIAR</button>
         </form>
@@ -66,7 +79,12 @@
             </div>
             <div class="modal-body">
               <label for="inputEmail">Correo Electrónico</label>
-              <input type="email" class="form-control" id="inputEmail" name="inputEmail" />
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail"
+                name="inputEmail"
+              />
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary">Enviar</button>
