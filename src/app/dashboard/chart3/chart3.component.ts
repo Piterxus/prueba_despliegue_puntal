@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 
   constructor(private apiService: ApiService) {}
 
+  
   ngAfterViewInit(): void {
     this.apiService.getDatosOcu().subscribe(data => {
       const ctx = document.getElementById('ctx3')as HTMLCanvasElement;
@@ -20,10 +21,10 @@ import { ApiService } from 'src/app/services/api/api.service';
             label: 'Estado de Ocupación',
             data: [
               data.plazas_base.ocupadas,
-              data.plazas_base.disponibles,
+              data.plazas_base.disponible,
               data.plazas_base.mantenimiento,
               data.transitos.ocupados,
-              data.transitos.disponibles,
+              data.transitos.disponible,
               data.transitos.mantenimiento
             ],
             backgroundColor: [

@@ -9,7 +9,7 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit{
-  
+   
   rutaActual: string = '';
 
   dura: string = 'Duracion media de las plazas base';

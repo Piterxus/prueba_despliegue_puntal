@@ -1,6 +1,23 @@
 :root {
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+
+}
+
+.container-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 50px;
+  width: 70%;
+
+}
+
+@media (max-width: 768px) {
+  .container-centered {
+    width: 90%;
+    /* Cambia el ancho del contenedor para pantallas pequeñas */
   }
+}
