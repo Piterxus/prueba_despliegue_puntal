@@ -1,21 +1,24 @@
 .errorContainer{
-
-    background-color: var(--wedgewood300);
+    font-family: "Inter", sans-serif;
+    background-color: var(--titanWhite50);
     height: 100vh;
 
 }
 .errorPage{
     text-align: center;
-   
-    
     padding: 20px;
     border-radius: 10px;
     width: 30%;
     box-shadow: 2px 2px 5px 2px var(--wedgewood950);
-  
-    background-color: var(--wedgewood500);
+    font-family: "Inter", sans-serif;
+    background-color: var(--wedgewood300);
 }
 
 .btn{
-    box-shadow: 1px 1px 3px 1px var(--wedgewood950);
+    box-shadow: 1px 1px 3px 1px var(--goldenTainoi300);
+    -webkit-text-stroke: 1.5px var(--goldenTainoi900);
+    background-color: var(--goldenTainoi300);
+  color: var(--goldenTainoi900);
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
 }
