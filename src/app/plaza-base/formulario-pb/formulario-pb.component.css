@@ -92,6 +92,9 @@ label {
   color: var(--goldenTainoi900);
 }
 
+.botones-container {
+  position: relative;
+  top: 150px;  }
 .btnAdd {
   background-color: var(--titanWhite900);
   color: var(--titanWhite50);

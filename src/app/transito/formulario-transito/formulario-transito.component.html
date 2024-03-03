@@ -126,7 +126,7 @@
           <div class="tripulante mb-3 d-flex">              
             <app-tabla-tripulante [mostrar]="noMostrar" [click]="noClick"></app-tabla-tripulante>
           </div>
-          <div class="d-flex justify-content-end mt-5">
+          <div class="d-flex justify-content-end mt-5 botones-container">
             <button
             *ngIf="!modoVista"
             class="btnDelete btn"
@@ -145,7 +145,7 @@
   
           <button
         
-          *ngIf="modoVista" class="btn btnCancelar" routerLink="../tabla">VOLVER
+          *ngIf="modoVista" class="btn btnBack" routerLink="../tabla">VOLVER
          </button>
   
           <button
