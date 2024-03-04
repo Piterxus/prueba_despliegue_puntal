@@ -83,7 +83,7 @@ export class CardConfirmacionTransitoComponent implements OnInit {
     // }
   
     // Crea el objeto con los datos a enviar
-    const data = { Estatus: 'salida' };
+    const data = { estatus: 'salida' };
   
     // Envía los datos al servidor utilizando el servicio API
     this.apiService.cambiarEstado(this.transito.id, data)
