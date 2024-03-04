@@ -96,30 +96,32 @@ export class CardIncidenciaComponent {
   // }
 
   guardarIncidencia() {
-    const formData = new FormData();
-    formData.append('Titulo', this.formulario.value.Titulo);
-    formData.append('Descripcion', this.formulario.value.Descripcion);
-    formData.append('Guardamuelle_id', this.formulario.value.Guardamuelle_id);
-    // Agregar la imagen seleccionada al objeto FormData
-    const imagenInput = document.getElementById('imgInci') as HTMLInputElement;
-    if (imagenInput && imagenInput.files && imagenInput.files.length > 0) {
-        const file = imagenInput.files[0];
-        formData.append('Imagen', file);
-    }
+    // const formData = new FormData();
+    // formData.append('Titulo', this.formulario.value.Titulo);
+    // formData.append('Descripcion', this.formulario.value.Descripcion);
+    // formData.append('Guardamuelle_id', this.formulario.value.Guardamuelle_id);
+    // // Agregar la imagen seleccionada al objeto FormData
+    // const imagenInput = document.getElementById('imgInci') as HTMLInputElement;
+    // if (imagenInput && imagenInput.files && imagenInput.files.length > 0) {
+    //     const file = imagenInput.files[0];
+    //     formData.append('Imagen', file);
+    // }
+
   
-    this.apiService.addPhoto('incidencia', formData)
-      .pipe(
-        catchError(error => {
-          console.error('Error en la solicitud:', error);
-          console.log('Mensaje de error:', error.error);
-          throw error;
-        })
-      )
-      .subscribe(
-        response => {
-          window.location.reload();
-          console.log('Respuesta del servicio en el componente:', response);
-        }
-      );
+    // this.apiService.addPhoto('incidencia', formData)
+    //   .pipe(
+    //     catchError(error => {
+    //       console.error('Error en la solicitud:', error);
+    //       console.log('Mensaje de error:', error.error);
+    //       throw error;
+    //     })
+    //   )
+    //   .subscribe(
+    //     response => {
+    //       window.location.reload();
+    //       console.log('Respuesta del servicio en el componente:', response);
+    //     }
+    //   );
+    window.location.reload();
 }
 }

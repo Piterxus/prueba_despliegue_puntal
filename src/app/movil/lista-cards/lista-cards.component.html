@@ -22,7 +22,7 @@
        <br>
        <b>Salida:</b> {{ transito.FechaSalida }}
        <br>
-       <b>Estado:</b> {{ transito.Estatus }}
+       <b>Estado:</b>  {{ transito.Estatus === null ? 'Entrada' : 'Salida'  }}
        <br> 
        <a (click)="verTransito(transito)" class="btn mt-1 ml-5 botonVer"><b>VER</b></a>
     </div>
