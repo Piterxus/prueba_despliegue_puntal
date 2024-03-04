@@ -73,7 +73,7 @@ export class CardConfirmacionTransitoComponent implements OnInit {
     console.log('Confirmando llegada del tránsito:', this.transito);
   
     // Actualiza el estado del tránsito en tu componente
-    this.transito.Estatus = 'Salida';
+    this.transito.Estatus = 'salida';
     // Cambia la apariencia del botón
     // const boton = document.querySelector('.botonLlegada');
     // if (boton) {
@@ -83,7 +83,7 @@ export class CardConfirmacionTransitoComponent implements OnInit {
     // }
   
     // Crea el objeto con los datos a enviar
-    const data = { Estatus: 'Salida' };
+    const data = { Estatus: 'salida' };
   
     // Envía los datos al servidor utilizando el servicio API
     this.apiService.cambiarEstado(this.transito.id, data)
