@@ -30,7 +30,7 @@
             <td>{{ transit.Titular }}</td>
             <td>{{ transit.Tipo }}</td>
             <td>{{ transit.Origen }}</td>
-            <td [ngClass]="{'fondo-salida': transit.Estatus === 'Salida', 'fondo-entrada': transit.Estatus === 'Entrada'}" class="estatus" >{{ transit.Estatus }}</td>
+            <td [ngClass]="{'fondo-salida': transit.Estatus === 'Salida', 'fondo-entrada': transit.Estatus === 'Entrada'}" class="Estatus" >{{ transit.Estatus }}</td>
             <td><input (click)="marcar(i,transit)" class="eliminar" type="checkbox" [checked]="seleccionados[i]" ></td>
             
             
